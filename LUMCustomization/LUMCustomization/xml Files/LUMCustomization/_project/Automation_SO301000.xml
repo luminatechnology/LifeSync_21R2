@@ -1,0 +1,5 @@
+﻿<Automation screen="SO301000">
+    <Fields ScreenID="SO301000">
+        <Field IsActive="True" FieldName="ORDERTOTAL" ObjectName="PX.OBJECTS.SO.SOORDER" />
+    </Fields>
+</Automation>

@@ -1,0 +1,30 @@
+﻿<Page path="~/pages/am/am201000.aspx" ControlId="1" pageSource="rVfbbuJIEH1mpPkHy6u8rYBEijQzgmi4JDtoccJgcnkbNXYN9GB3e9ttLvuw375VbRtsQkxgNw9Jp7t86nKqj8uti6/WiM3AGjIxS3DRtnu/2ZbDYg2KDu54gHv/NHY7cWPIY/3EYVUPzaZtdRItb5cg9DNXkERtW6sEbOuJBdxnGsbwVwKxbts/WRDjfk/6GW7HuWpeNpvNOoujdd2LbWsg5qC4jts2+fqRG9jWhGt64lFoWvgmatu6uPn4oYU5pOFNNhFYT1zphAUjpudHA6fHEQC9f+lJoTEDa9Bv2x6uLylOszUKmAffZOCDosNo3ndta5wIhhm5oJYIhDC1VrT+MnrpM81cmSgPDJKPKanUNE5NMb6YTymViSnSM/cpUEzywrZGiodMbShGKo4zcsfgSUUolNs9C/G50Uv9YfoLPB3XO04dbRzGhbatLhqCcvWGwO+ldkGbwGqtHguCKfMWPRmGTPjxTa328YNV+Mlid/cMLfrLdW+OzQFxHnEahcuWuG7cvA8ofYby6j44hRrcpR3RhwiE/yD+UNxv2zP8XYZuNV6lQBVv7JWcmqFRIPPmDW6v3uZ2uOVrR+0uMYrPoKQh7jFborITBHKFbcfFLC+c2XKBKW+eX5GO/yuJNXWny/+mC4E3CcuxzSjvIXcjvJGMueZS5HDuggs6z5om43oISwhMeWq1XdBm1+A6EE5B7XcXnfwJG6IJecYTardB/3cLl4O+vceyKchYriYQRgFe8NRb7m/INjLR4ySA/QK5mindk0ESbpNA4ZlivFnpnJQYJYO0HC9O2gcFdBdmIRKH13phmAB/IEh6pNpgoPseKa87DgF2VcnMUHHrc53Fsd/H5X5+7dNNpgMNYbXHgtFeEmgEEx4CRZAhYicK2q4C3NkcizdAeZAqg97SWYVdMKImpPvWxftW6t3/UjCujwSQW5zm6T6hdi7U8bveVHkxxydV75EE621Ac3wSICpgdSUyA6JhDD8VxPPzWOjNwVt05TrVvfmi42m+hLtgVuW8YFSNTuQW6p4KRXWDoUE15gTWuoBZuLI/fIg9xSMSwHfe8vIjJzk2DLzX5QHjQ85ajbJivjpPhTGujJO0PLV7U9oOvbOrkz8MWlCvg2PAOZg7AcsE/3MzWp8HVdCr/L17dX0eVK48OxwK6n9L2kgONVgn4DN88Y35bK533i7PLoGRnhzn0/W5MJnclLMfcpHPWoW57Rz4gqAUq9DDjqWLRCTif5lUnd0LR6Xl6M0p3+CsGlefiJ2zq3oiJo65Ww2gWaFRnt/SAa9RmPBa9I6gUcmMTfgZQJPdMxe+XNnWrWA4Y/t56zpcfANqPYzgupmNJMYrMSRFlykrXcVEUz6bl8ZwB7/c8BON63tYoZqVXkuPUSCZXxCcYvwHJvN/AQ==">
+    <PXGridLevel DataMember="AMMPSRecords" ParentId="phL_grid_Levels#0" TypeFullName="PX.Web.UI.PXGridLevel">
+        <Children Key="Columns">
+            <AddItem>
+                <PXGridColumn TypeFullName="PX.Web.UI.PXGridColumn">
+                    <Prop Key="DataField" Value="UsrWcID" />
+                    <Prop Key="Width" Value="140" />
+                </PXGridColumn>
+            </AddItem>
+            <PXGridColumn DataField="InventoryID_description" OriginalIndex="10" />
+            <AddItem>
+                <PXGridColumn TypeFullName="PX.Web.UI.PXGridColumn">
+                    <Prop Key="DataField" Value="UsrRemark" />
+                    <Prop Key="Width" Value="140" />
+                </PXGridColumn>
+            </AddItem>
+            <PXGridColumn DataField="BOMID_description" OriginalIndex="11" />
+        </Children>
+        <Children Key="RowTemplate">
+            <AddItem>
+                <PXSelector TypeFullName="PX.Web.UI.PXSelector">
+                    <Prop Key="Virtual:ApplyStylesheetSkin" />
+                    <Prop Key="ID" Value="CstPXSelector1" />
+                    <Prop Key="DataField" Value="UsrWcID" />
+                    <Prop Key="AllowEdit" Value="True" />
+                </PXSelector>
+            </AddItem>
+        </Children>
+    </PXGridLevel>
+</Page>

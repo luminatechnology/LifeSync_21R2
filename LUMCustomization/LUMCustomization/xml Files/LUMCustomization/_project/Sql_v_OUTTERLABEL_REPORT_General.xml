@@ -1,0 +1,56 @@
+﻿<Sql TableName="v_OUTTERLABEL_REPORT_General" CustomScript="#CDATA">
+    <CDATA name="CustomScript"><![CDATA[IF EXISTS
+(
+	SELECT *
+	FROM SYS.views
+	WHERE name = 'v_OUTTERLABEL_REPORT' AND SCHEMA_ID = SCHEMA_ID('dbo')
+)
+DROP VIEW [dbo].[v_OUTTERLABEL_REPORT]	
+GO
+CREATE VIEW v_OUTTERLABEL_REPORT AS
+SELECT t.CompanyID,
+	   t.ShipmentPlanID,
+	   t.InventoryID,
+	   attr.Description AS Customer,
+	   p.UsrSOCustomerPO AS CustomerOrderNbr,
+	   t.LotSerialNbr,
+	   ProdLine,
+	   t.PlannedShipDate,
+	   m.PlannedShipQty,
+	   NowNbr AS StartLabelNbr,
+	   m.EndLabelNbr,
+	   t.ProdOrdID,
+	  CASE WHEN (t.PlannedShipQty - (NowNbr * CAST(c.Value AS decimal))) / CAST(c.Value AS decimal) > 0 then CAST(c.Value as int)
+	  ELSE CAST(CAST(c.Value AS decimal) + (t.PlannedShipQty - (NowNbr * CAST(c.Value AS decimal))) % CAST(c.Value AS decimal) as int) END AS Container
+FROM LumShipmentPlan t
+INNER JOIN InventoryItem i ON t.CompanyID = i.CompanyID 
+						  AND t.InventoryID = i.InventoryID
+LEFT JOIN CSAnswers c ON t.CompanyID = c.CompanyID
+					 AND i.NoteID = c.RefNoteID
+					 AND c.AttributeID = 'QTYCARTON'
+LEFT JOIN CSAttributeDetail attr ON t.CompanyID = attr.CompanyID
+						        AND attr.AttributeID = 'ENDC'
+						        AND t.Customer = attr.valueID
+INNER JOIN AMProdItem p ON t.CompanyID = p.CompanyID
+				       AND t.ProdOrdID = p.ProdOrdID
+INNER JOIN (
+		select CompanyID, 
+			   ShipmentPlanID, 
+			   plannedshipDate,
+			   InventoryID,
+			   CustomerOrderNbr,
+			   max(ISNULL(EndLabelNbr,1)) as EndLabelNbr,
+			   sum(ISNULL(PlannedShipQty,0)) AS PlannedShipQty
+		from LumShipmentPlan 
+		group by CompanyID, ShipmentPlanID,plannedshipDate,InventoryID,CustomerOrderNbr) m on m.CompanyID = t.CompanyID
+																						  and m.ShipmentPlanID = t.ShipmentPlanID
+																						  and m.plannedshipDate = t.PlannedShipDate
+																						  and m.InventoryID = t.InventoryID
+																						  and m.CustomerOrderNbr = t.CustomerOrderNbr
+CROSS JOIN(
+	    SELECT DISTINCT NUMBER AS NowNbr
+		FROM master.dbo.spt_values
+		WHERE name IS NULL
+) NumberPool
+WHERE NowNbr BETWEEN t.StartLabelNbr AND t.EndLabelNbr]]></CDATA>
+</Sql>
