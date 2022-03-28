@@ -1,3 +1,0 @@
-﻿<Table TableName="AMWrkMatl">
-    <Column TableName="AMWrkMatl" ColumnName="UsrTempProdQty" ColumnType="decimal" AllowNull="True" DecimalPrecision="6" DecimalLength="25" IsNewColumn="True" IsUnicode="True" />
-</Table>

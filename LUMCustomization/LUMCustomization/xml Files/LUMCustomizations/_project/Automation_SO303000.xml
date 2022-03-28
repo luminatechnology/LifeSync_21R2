@@ -1,5 +1,0 @@
-﻿<Automation screen="SO303000">
-    <Fields ScreenID="SO303000">
-        <Field IsActive="True" FieldName="LINETOTAL" ObjectName="PX.OBJECTS.AR.ARINVOICE" />
-    </Fields>
-</Automation>
