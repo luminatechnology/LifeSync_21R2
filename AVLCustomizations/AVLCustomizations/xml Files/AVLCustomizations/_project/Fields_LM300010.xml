@@ -1,0 +1,15 @@
+﻿<Fields ScreenID="LM300010">
+    <Field IsActive="True" FieldName="ACTION" DisableCondition="True" HideCondition="True" ObjectName="AVLCUSTOMIZATIONS.AVLEVENT" />
+    <Field IsActive="True" DisplayName="AVL Nbr" FieldName="AVLNBR" DisableCondition="True" HideCondition="True" ObjectName="AVLCUSTOMIZATIONS.AVLEVENT" />
+    <Field IsActive="True" FieldName="CREATEDBYID_CREATOR_USERNAME" DisableCondition="True" ObjectName="AVLCUSTOMIZATIONS.AVLEVENT" />
+    <Field IsActive="True" FieldName="CREATEDDATETIME" DisableCondition="True" ObjectName="AVLCUSTOMIZATIONS.AVLEVENT" />
+    <Field IsActive="True" FieldName="LASTMODIFIEDBYID_MODIFIER_USERNAME" DisableCondition="True" ObjectName="AVLCUSTOMIZATIONS.AVLEVENT" />
+    <Field IsActive="True" FieldName="LASTMODIFIEDDATETIME" DisableCondition="True" ObjectName="AVLCUSTOMIZATIONS.AVLEVENT" />
+    <Field IsActive="True" FieldName="TYPE" DisableCondition="True" ObjectName="AVLCUSTOMIZATIONS.AVLEVENT" />
+    <Field IsActive="True" DisplayName="AVL Nbr" FieldName="AVLNBR" ObjectName="AVLCUSTOMIZATIONS.AVLLINE" />
+    <Field IsActive="True" DisplayName="Vendor" FieldName="VENDORID" ObjectName="AVLCUSTOMIZATIONS.AVLLINE" />
+    <Field IsActive="True" DisplayName="Action" FieldName="AVLACTION" ObjectName="AVLCUSTOMIZATIONS.AVLTABLE" />
+    <Field IsActive="True" DisplayName="Date" FieldName="AVLDATE" ObjectName="AVLCUSTOMIZATIONS.AVLTABLE" />
+    <Field IsActive="True" DisplayName="AVL Nbr" FieldName="AVLNBR" ObjectName="AVLCUSTOMIZATIONS.AVLTABLE" />
+    <Field IsActive="True" DisplayName="Status" FieldName="AVLSTATUS" ObjectName="AVLCUSTOMIZATIONS.AVLTABLE" />
+</Fields>
