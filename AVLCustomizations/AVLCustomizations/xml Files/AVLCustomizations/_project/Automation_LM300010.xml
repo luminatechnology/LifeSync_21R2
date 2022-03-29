@@ -1,46 +1,17 @@
 ﻿<Automation screen="LM300010">
-    <AUFields screen="LM300010">
-        <AutomationScreenField ScreenID="LM300010" TableName="AVLCUSTOMIZATIONS.AVLLINE" FieldName="AVLNBR" IsUserDefinedField="False">
-            <Prop Name="DisplayName" DisplayName="Display Name" IsCustomized="True" Value="AVL Nbr" />
-        </AutomationScreenField>
-        <AutomationScreenField ScreenID="LM300010" TableName="AVLCUSTOMIZATIONS.AVLTABLE" FieldName="AVLNBR" IsUserDefinedField="False">
-            <Prop Name="DisplayName" DisplayName="Display Name" IsCustomized="True" Value="AVL Nbr" />
-        </AutomationScreenField>
-        <AutomationScreenField ScreenID="LM300010" TableName="AVLCUSTOMIZATIONS.AVLTABLE" FieldName="AVLSTATUS" IsUserDefinedField="False">
-            <Prop Name="DisplayName" DisplayName="Display Name" IsCustomized="True" Value="Status" />
-        </AutomationScreenField>
-        <AutomationScreenField ScreenID="LM300010" TableName="AVLCUSTOMIZATIONS.AVLTABLE" FieldName="AVLDATE" IsUserDefinedField="False">
-            <Prop Name="DisplayName" DisplayName="Display Name" IsCustomized="True" Value="Date" />
-        </AutomationScreenField>
-        <AutomationScreenField ScreenID="LM300010" TableName="AVLCUSTOMIZATIONS.AVLTABLE" FieldName="AVLACTION" IsUserDefinedField="False">
-            <Prop Name="DisplayName" DisplayName="Display Name" IsCustomized="True" Value="Action" />
-        </AutomationScreenField>
-        <AutomationScreenField ScreenID="LM300010" TableName="AVLCUSTOMIZATIONS.AVLEVENT" FieldName="AVLNBR" IsUserDefinedField="False">
-            <Prop Name="IsVisible" DisplayName="Visible" IsCustomized="True" Value="False" />
-            <Prop Name="DisplayName" DisplayName="Display Name" IsCustomized="True" Value="AVL Nbr" />
-            <Prop Name="IsEnabled" DisplayName="Enabled" IsCustomized="True" Value="False" />
-        </AutomationScreenField>
-        <AutomationScreenField ScreenID="LM300010" TableName="AVLCUSTOMIZATIONS.AVLEVENT" FieldName="TYPE" IsUserDefinedField="False">
-            <Prop Name="IsEnabled" DisplayName="Enabled" IsCustomized="True" Value="False" />
-        </AutomationScreenField>
-        <AutomationScreenField ScreenID="LM300010" TableName="AVLCUSTOMIZATIONS.AVLEVENT" FieldName="ACTION" IsUserDefinedField="False">
-            <Prop Name="IsEnabled" DisplayName="Enabled" IsCustomized="True" Value="False" />
-            <Prop Name="IsVisible" DisplayName="Visible" IsCustomized="True" Value="False" />
-        </AutomationScreenField>
-        <AutomationScreenField ScreenID="LM300010" TableName="AVLCUSTOMIZATIONS.AVLEVENT" FieldName="CREATEDBYID_CREATOR_USERNAME" IsUserDefinedField="False">
-            <Prop Name="IsEnabled" DisplayName="Enabled" IsCustomized="True" Value="False" />
-        </AutomationScreenField>
-        <AutomationScreenField ScreenID="LM300010" TableName="AVLCUSTOMIZATIONS.AVLEVENT" FieldName="CREATEDDATETIME" IsUserDefinedField="False">
-            <Prop Name="IsEnabled" DisplayName="Enabled" IsCustomized="True" Value="False" />
-        </AutomationScreenField>
-        <AutomationScreenField ScreenID="LM300010" TableName="AVLCUSTOMIZATIONS.AVLEVENT" FieldName="LASTMODIFIEDBYID_MODIFIER_USERNAME" IsUserDefinedField="False">
-            <Prop Name="IsEnabled" DisplayName="Enabled" IsCustomized="True" Value="False" />
-        </AutomationScreenField>
-        <AutomationScreenField ScreenID="LM300010" TableName="AVLCUSTOMIZATIONS.AVLEVENT" FieldName="LASTMODIFIEDDATETIME" IsUserDefinedField="False">
-            <Prop Name="IsEnabled" DisplayName="Enabled" IsCustomized="True" Value="False" />
-        </AutomationScreenField>
-        <AutomationScreenField ScreenID="LM300010" TableName="AVLCUSTOMIZATIONS.AVLLINE" FieldName="VENDORID" IsUserDefinedField="False">
-            <Prop Name="DisplayName" DisplayName="Display Name" IsCustomized="True" Value="Vendor" />
-        </AutomationScreenField>
-    </AUFields>
+    <Fields ScreenID="LM300010">
+        <Field IsActive="True" FieldName="ACTION" DisableCondition="True" HideCondition="True" ObjectName="AVLCUSTOMIZATIONS.AVLEVENT" />
+        <Field IsActive="True" DisplayName="AVL Nbr" FieldName="AVLNBR" DisableCondition="True" HideCondition="True" ObjectName="AVLCUSTOMIZATIONS.AVLEVENT" />
+        <Field IsActive="True" FieldName="CREATEDBYID_CREATOR_USERNAME" DisableCondition="True" ObjectName="AVLCUSTOMIZATIONS.AVLEVENT" />
+        <Field IsActive="True" FieldName="CREATEDDATETIME" DisableCondition="True" ObjectName="AVLCUSTOMIZATIONS.AVLEVENT" />
+        <Field IsActive="True" FieldName="LASTMODIFIEDBYID_MODIFIER_USERNAME" DisableCondition="True" ObjectName="AVLCUSTOMIZATIONS.AVLEVENT" />
+        <Field IsActive="True" FieldName="LASTMODIFIEDDATETIME" DisableCondition="True" ObjectName="AVLCUSTOMIZATIONS.AVLEVENT" />
+        <Field IsActive="True" FieldName="TYPE" DisableCondition="True" ObjectName="AVLCUSTOMIZATIONS.AVLEVENT" />
+        <Field IsActive="True" DisplayName="AVL Nbr" FieldName="AVLNBR" ObjectName="AVLCUSTOMIZATIONS.AVLLINE" />
+        <Field IsActive="True" DisplayName="Vendor" FieldName="VENDORID" ObjectName="AVLCUSTOMIZATIONS.AVLLINE" />
+        <Field IsActive="True" DisplayName="Action" FieldName="AVLACTION" ObjectName="AVLCUSTOMIZATIONS.AVLTABLE" />
+        <Field IsActive="True" DisplayName="Date" FieldName="AVLDATE" ObjectName="AVLCUSTOMIZATIONS.AVLTABLE" />
+        <Field IsActive="True" DisplayName="AVL Nbr" FieldName="AVLNBR" ObjectName="AVLCUSTOMIZATIONS.AVLTABLE" />
+        <Field IsActive="True" DisplayName="Status" FieldName="AVLSTATUS" ObjectName="AVLCUSTOMIZATIONS.AVLTABLE" />
+    </Fields>
 </Automation>

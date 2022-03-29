@@ -1,3 +1,0 @@
-﻿<AutomationScreenField ScreenID="LM300015" TableName="AVLCUSTOMIZATIONS.APPROVEDVENDLISTS" FieldName="LINENBR" IsUserDefinedField="False">
-    <Prop Name="IsVisible" DisplayName="Visible" IsCustomized="True" Value="False" />
-</AutomationScreenField>

@@ -1,10 +1,6 @@
 ﻿<Automation screen="LM300015">
-    <AUFields screen="LM300015">
-        <AutomationScreenField ScreenID="LM300015" TableName="AVLCUSTOMIZATIONS.APPROVEDVENDLISTS" FieldName="LINENBR" IsUserDefinedField="False">
-            <Prop Name="IsVisible" DisplayName="Visible" IsCustomized="True" Value="False" />
-        </AutomationScreenField>
-        <AutomationScreenField ScreenID="LM300015" TableName="AVLCUSTOMIZATIONS.AVLLINE" FieldName="VENDORID" IsUserDefinedField="False">
-            <Prop Name="DisplayName" DisplayName="Display Name" IsCustomized="True" Value="Vendor" />
-        </AutomationScreenField>
-    </AUFields>
+    <Fields ScreenID="LM300015">
+        <Field IsActive="True" FieldName="LINENBR" HideCondition="True" ObjectName="AVLCUSTOMIZATIONS.APPROVEDVENDLISTS" />
+        <Field IsActive="True" DisplayName="Vendor" FieldName="VENDORID" ObjectName="AVLCUSTOMIZATIONS.AVLLINE" />
+    </Fields>
 </Automation>
