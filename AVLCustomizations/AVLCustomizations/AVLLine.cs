@@ -2,6 +2,7 @@ using System;
 using PX.Data;
 using PX.Data.BQL.Fluent;
 using PX.Objects.AP;
+using PX.Objects.AR;
 using PX.Objects.CR;
 using PX.Objects.CS;
 using PX.Objects.IN;
@@ -41,10 +42,13 @@ namespace AVLCustomizations
         [PXUIField(DisplayName = "Vendor")]
         [PXDimensionSelectorAttribute("VENDOR", typeof(Search<VendorR.bAccountID,
                                                         Where<VendorR.type, Equal<BAccountType.vendorType>,
-                                                        And<VendorR.status, Equal<BAccount.status.active>>>>),
+                                                        And<VendorR.vStatus, Equal<CustomerStatus.active>>>>),
                                                 typeof(VendorR.acctCD),
                                                 new Type[] { typeof(VendorR.bAccountID), typeof(VendorR.acctCD), typeof(VendorR.acctName) }, 
                                       IsDirty = true)]
+        //[VendorRaw(typeof(Where<Vendor.type, Equal<BAccountType.vendorType>,
+        //                     Or<Vendor.type, Equal<BAccountType.combinedType>>>), DescriptionField = typeof(Vendor.acctName), IsKey = true, DisplayName = "Vendor ID")]
+
         public virtual int? VendorID { get; set; }
         public abstract class vendorid : PX.Data.BQL.BqlString.Field<vendorid> { }
         #endregion

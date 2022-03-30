@@ -14,7 +14,6 @@ namespace AVLCustomizations
                                                          typeof(AVLTable.avldate),
                                                          typeof(AVLTable.descripton))
         { }
-        //=> this.DescriptionField = typeof(AVLTable.descripton);
 
         protected virtual IEnumerable GetRecords()
         {
@@ -34,13 +33,8 @@ namespace AVLCustomizations
     {
         #region Avlnbr
         [PXDBString(20, IsKey = true, IsUnicode = true, InputMask = "")]
-        [PXUIField(DisplayName = "AVL Nbr.2", Required = true)]
+        [PXUIField(DisplayName = "AVL Nbr.", Required = true)]
         [AutoNumber(typeof(APSetup.checkNumberingID), typeof(AccessInfo.businessDate))]
-        //[PXSelector(typeof(Search<AVLTable.avlnbr>),
-        //            typeof(AVLTable.avlnbr),
-        //            typeof(AVLTable.aVLStatus),
-        //            typeof(AVLTable.avldate),
-        //            typeof(AVLTable.descripton))]
         [AVLActionCustomSelector()]
         public virtual string Avlnbr { get; set; }
         public abstract class avlnbr : PX.Data.BQL.BqlString.Field<avlnbr> { }
