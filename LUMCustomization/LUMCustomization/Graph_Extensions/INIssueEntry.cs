@@ -71,7 +71,7 @@ namespace PX.Objects.SO
         public virtual void LumReport() { }
 
         public PXAction<INRegister> InventoryIssueReport;
-        [PXButton]
+        [PXButton(DisplayOnMainToolbar = false)]
         [PXUIField(DisplayName = "Inventory Issue Report", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable inventoryIssueReport(PXAdapter adapter)
         {

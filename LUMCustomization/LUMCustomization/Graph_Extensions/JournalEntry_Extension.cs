@@ -19,7 +19,7 @@ namespace PX.Objects.GL
 
         #region Material Issues Action
         public PXAction<Batch> GLJournalAction;
-        [PXButton]
+        [PXButton(DisplayOnMainToolbar = false)]
         [PXUIField(DisplayName = "GL Journal Report", MapEnableRights = PXCacheRights.Select)]
         protected void gLJournalAction()
         {

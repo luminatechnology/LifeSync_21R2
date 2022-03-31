@@ -46,7 +46,7 @@ namespace PX.Objects.SO
 
         #region Action
         public PXAction<ARInvoice> CommercialInvoiceReport;
-        [PXButton]
+        [PXButton(DisplayOnMainToolbar = false)]
         [PXUIField(DisplayName = "Print Commercial Invoice (HK for tooling)", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable commercialInvoiceReport(PXAdapter adapter)
         {
@@ -62,7 +62,7 @@ namespace PX.Objects.SO
 
         #region Action
         public PXAction<ARInvoice> CreditNoteReport;
-        [PXButton]
+        [PXButton(DisplayOnMainToolbar = false)]
         [PXUIField(DisplayName = "Print Credit Note", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable creditNoteReport(PXAdapter adapter)
         {
@@ -78,7 +78,7 @@ namespace PX.Objects.SO
 
         #region Action
         public PXAction<ARInvoice> CommercialInvoiceFromDGReport;
-        [PXButton]
+        [PXButton(DisplayOnMainToolbar = false)]
         [PXUIField(DisplayName = "Print Commercial Invoice From DG", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable commercialInvoiceFromDGReport(PXAdapter adapter)
         {

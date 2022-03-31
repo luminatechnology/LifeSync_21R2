@@ -89,7 +89,7 @@ namespace PX.Objects.PO
 
         #region Action
         public PXAction<POOrder> DomesticPO;
-        [PXButton]
+        [PXButton(DisplayOnMainToolbar = false)]
         [PXUIField(DisplayName = "Print Domestic PO", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable domesticPO(PXAdapter adapter)
         {
@@ -103,7 +103,7 @@ namespace PX.Objects.PO
 
         #region Action
         public PXAction<POOrder> OverseasPO;
-        [PXButton]
+        [PXButton(DisplayOnMainToolbar = false)]
         [PXUIField(DisplayName = "Print Overseas PO", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable overseasPO(PXAdapter adapter)
         {

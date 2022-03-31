@@ -25,7 +25,7 @@ namespace LUMCustomizations.Graph_Extensions
         #region Action
 
         public PXAction<INPIHeader> CountintListReport;
-        [PXButton]
+        [PXButton(DisplayOnMainToolbar = false)]
         [PXUIField(DisplayName = "Print Counting list", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable countintListReport(PXAdapter adapter)
         {

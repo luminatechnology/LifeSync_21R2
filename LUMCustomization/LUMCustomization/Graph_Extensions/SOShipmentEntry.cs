@@ -150,7 +150,7 @@ namespace PX.Objects.SO
 
         #region Action
         public PXAction<SOShipment> ProformaInvoice;
-        [PXButton]
+        [PXButton(DisplayOnMainToolbar = false)]
         [PXUIField(DisplayName = "Print Proforma Invoice Report", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable proformaInvoice(PXAdapter adapter)
         {
@@ -165,7 +165,7 @@ namespace PX.Objects.SO
         }
 
         public PXAction<SOShipment> DeliveryOrderReport;
-        [PXButton]
+        [PXButton(DisplayOnMainToolbar = false)]
         [PXUIField(DisplayName = "Print Delivery Order", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable deliveryOrderReport(PXAdapter adapter)
         {
@@ -179,7 +179,7 @@ namespace PX.Objects.SO
         }
 
         public PXAction<SOShipment> DispatchNoteReport;
-        [PXButton]
+        [PXButton(DisplayOnMainToolbar = false)]
         [PXUIField(DisplayName = "Print Dispatch Note", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable dispatchNoteReport(PXAdapter adapter)
         {
@@ -193,7 +193,7 @@ namespace PX.Objects.SO
         }
 
         public PXAction<SOShipment> ReturnNoteReport;
-        [PXButton]
+        [PXButton(DisplayOnMainToolbar = false)]
         [PXUIField(DisplayName = "Print Return Note", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable returnNoteReport(PXAdapter adapter)
         {

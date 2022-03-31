@@ -42,14 +42,14 @@ namespace PX.Objects.AM
 
         #region Report Action
         public PXAction<AMBatch> ReportAction;
-        [PXButton]
+        [PXButton(MenuAutoOpen = true, CommitChanges = true)]
         [PXUIField(DisplayName = "Report")]
         protected void reportAction() { }
         #endregion
 
         #region Material Issues Action
         public PXAction<AMBatch> MaterialIssuesAction;
-        [PXButton]
+        [PXButton(DisplayOnMainToolbar = false)]
         [PXUIField(DisplayName = "Material Issues", MapEnableRights = PXCacheRights.Select)]
         protected void materialIssuesAction()
         {
@@ -75,7 +75,7 @@ namespace PX.Objects.AM
 
         #region Material Return Action
         public PXAction<AMBatch> MaterialReturnAction;
-        [PXButton]
+        [PXButton(DisplayOnMainToolbar = false)]
         [PXUIField(DisplayName = "Material Return", MapEnableRights = PXCacheRights.Select)]
         protected void materialReturnAction()
         {

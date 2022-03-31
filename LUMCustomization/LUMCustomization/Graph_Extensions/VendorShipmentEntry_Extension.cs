@@ -30,7 +30,7 @@ namespace LUMCustomizations.Graph_Extensions
         public virtual void LumReport() { }
 
         public PXAction<AMVendorShipment> VendorShipment;
-        [PXButton]
+        [PXButton(DisplayOnMainToolbar = false)]
         [PXUIField(DisplayName = "Print Vendor Shipmetn Report", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable vendorShipment(PXAdapter adapter)
         {

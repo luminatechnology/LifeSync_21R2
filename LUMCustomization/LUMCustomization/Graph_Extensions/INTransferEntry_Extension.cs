@@ -32,7 +32,7 @@ namespace PX.Objects.IN
         public virtual void LumReport() { }
 
         public PXAction<INRegister> InventoryTransferReport;
-        [PXButton]
+        [PXButton(DisplayOnMainToolbar = false)]
         [PXUIField(DisplayName = "Inventory Transfer Report", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable inventoryTransferReport(PXAdapter adapter)
         {

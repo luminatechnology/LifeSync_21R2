@@ -85,7 +85,7 @@ namespace PX.Objects.SO
         public virtual void LumReport() { }
 
         public PXAction<AMProdItem> ProductionInstruction;
-        [PXButton]
+        [PXButton(DisplayOnMainToolbar = false)]
         [PXUIField(DisplayName = "生产指令单", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable productionInstruction(PXAdapter adapter)
         {
@@ -107,7 +107,7 @@ namespace PX.Objects.SO
         }
 
         public PXAction<AMProdItem> InnerLabel;
-        [PXButton]
+        [PXButton(DisplayOnMainToolbar = false)]
         [PXUIField(DisplayName = "Print Inner label", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable innerLabel(PXAdapter adapter)
         {

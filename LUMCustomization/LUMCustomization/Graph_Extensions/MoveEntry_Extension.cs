@@ -20,14 +20,14 @@ namespace PX.Objects.AM
 
         #region Report Action
         public PXAction<AMBatch> ReportAction;
-        [PXButton]
+        [PXButton(MenuAutoOpen = true, CommitChanges = true)]
         [PXUIField(DisplayName = "Report")]
         protected void reportAction() { }
         #endregion
 
         #region Material Issues Action
         public PXAction<AMBatch> ProductionMoveAction;
-        [PXButton]
+        [PXButton(DisplayOnMainToolbar = false)]
         [PXUIField(DisplayName = "Production Move", MapEnableRights = PXCacheRights.Select)]
         protected void productionMoveAction()
         {

@@ -48,7 +48,7 @@ namespace PX.Objects.IN
 
         #region Action
         public PXAction<ARInvoice> CommercialInvoiceReport;
-        [PXButton]
+        [PXButton(DisplayOnMainToolbar = false)]
         [PXUIField(DisplayName = "Print Commercial Invoice", MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable commercialInvoiceReport(PXAdapter adapter)
         {

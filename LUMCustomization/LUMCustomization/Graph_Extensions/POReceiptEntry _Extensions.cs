@@ -20,7 +20,7 @@ namespace PX.Objects.PO
 
         #region Action
         public PXAction<POReceipt> POReceipt;
-        [PXButton]
+        [PXButton(DisplayOnMainToolbar = false)]
         [PXUIField(DisplayName = "Print PO Receipt", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable pOReceipt(PXAdapter adapter)
         {
@@ -42,7 +42,7 @@ namespace PX.Objects.PO
         }
 
         public PXAction<POReceipt> POReturn;
-        [PXButton]
+        [PXButton(DisplayOnMainToolbar = false)]
         [PXUIField(DisplayName = "Print PO Return", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable pOReturn(PXAdapter adapter)
         {
