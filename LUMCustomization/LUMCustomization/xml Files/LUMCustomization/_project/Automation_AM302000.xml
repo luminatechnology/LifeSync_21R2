@@ -1,5 +1,5 @@
 ﻿<Automation screen="AM302000">
     <Fields ScreenID="AM302000">
-        <Field IsActive="True" DisplayName="Work center" FieldName="WCID" ObjectName="JAMS.AM.AMMTRAN" />
+        <Field IsActive="True" DisplayName="Work center" FieldName="WCID" ObjectName="PX.Objects.AM.AMMTRAN" />
     </Fields>
 </Automation>

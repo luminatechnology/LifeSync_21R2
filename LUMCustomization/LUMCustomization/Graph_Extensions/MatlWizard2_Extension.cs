@@ -31,6 +31,10 @@ namespace PX.Objects.AM
                         }
                         throw;
                     }
+                    catch(Exception ex)
+                    {
+                        throw new Exception(ex.Message);
+                    }
                 }
             );
         }
