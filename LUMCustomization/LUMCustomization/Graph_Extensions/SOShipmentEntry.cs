@@ -84,6 +84,20 @@ namespace PX.Objects.SO
         #endregion
 
         #region Event Handler
+
+        protected void _(Events.FieldUpdated<SOShipLine.shippedQty> e, PXFieldUpdated baseMethod)
+        {
+            try
+            {
+                // avoid string convert number error
+                baseMethod.Invoke(e.Cache,e.Args);
+            }
+            catch(Exception ex)
+            {
+               
+            }
+        }
+
         protected void _(Events.FieldUpdated<SOShipLineExt.usrCartonQty> e)
         {
             SOShipLine row = e.Row as SOShipLine;
