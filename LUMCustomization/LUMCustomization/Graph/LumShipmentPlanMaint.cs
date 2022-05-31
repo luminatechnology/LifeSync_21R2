@@ -164,7 +164,7 @@ namespace LumCustomizations.Graph
             return adapter.Get<SOShipment>().ToList();
         }
 
-        
+
         public PXAction<SOShipment> DGCommericalInvoice;
         [PXButton]
         [PXUIField(DisplayName = "DG to HK Invoice Report", Enabled = true, MapEnableRights = PXCacheRights.Select)]
@@ -180,7 +180,7 @@ namespace LumCustomizations.Graph
             if (parameters["RefNbr"] != null)
                 throw new PXReportRequiredException(parameters, _reportID, string.Format("Report {0}", _reportID));
             return adapter.Get<SOShipment>().ToList();
-            
+
         }
         #endregion
 
@@ -211,7 +211,7 @@ namespace LumCustomizations.Graph
 
             AMProdItem prodItem = SelectFrom<AMProdItem>.Where<AMProdItem.prodOrdID.IsEqual<@P.AsString>>.View.Select(this, row.ProdOrdID);
 
-            if(prodItem == null)
+            if (prodItem == null)
                 return;
 
             row.QtyToProd = prodItem.QtytoProd;
@@ -250,7 +250,15 @@ namespace LumCustomizations.Graph
 
                 PXFieldState valueExt = Order.Cache.GetValueExt((object)soOrder, PX.Objects.CS.Messages.Attribute + ENDC) as PXFieldState;
 
-                row.Customer = (string)valueExt.Value;
+                // 找Attrbite Description
+                try
+                {
+                    row.Customer = string.IsNullOrEmpty((string)valueExt.Value) ? string.Empty : ((PX.Data.PXStringState)valueExt).ValueLabelDic[(string)valueExt.Value];
+                }
+                catch
+                {
+                    row.Customer = string.Empty;
+                }
                 row.OrderNbr = soOrder.OrderNbr;
                 row.OrderType = soOrder.OrderType;
                 row.CustomerLocationID = soOrder.CustomerLocationID;
@@ -329,7 +337,7 @@ namespace LumCustomizations.Graph
                 Order.Update(soOrder);
             }
         }
-        
+
         protected void _(Events.FieldUpdated<LumShipmentPlan.plannedShipDate> e)
         {
             var row = e.Row as LumShipmentPlan;
@@ -341,10 +349,10 @@ namespace LumCustomizations.Graph
                     .And<LumShipmentPlan.shipmentPlanID.IsEqual<@P.AsString>>
                     .And<LumShipmentPlan.prodOrdID.IsNotEqual<@P.AsString>>>
                 .AggregateTo<Max<LumShipmentPlan.endLabelNbr>>
-                .View.Select(this, row.PlannedShipDate,row.CustomerOrderNbr,row.InventoryID,row.ShipmentPlanID,row.ProdOrdID);
+                .View.Select(this, row.PlannedShipDate, row.CustomerOrderNbr, row.InventoryID, row.ShipmentPlanID, row.ProdOrdID);
             row.StartLabelNbr = data.EndLabelNbr == null ? 1 : data.EndLabelNbr + 1;
         }
-        
+
         #endregion
 
         #region Method
