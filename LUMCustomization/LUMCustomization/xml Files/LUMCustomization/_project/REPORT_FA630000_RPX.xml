@@ -1,5 +1,5 @@
 ﻿<Report Name="fa630000.rpx">
-    <Report Name="report1" version="20201103">
+    <Report version="20201103" Name="report1">
         <ExcelColumns>
             <item>12</item>
             <item>12</item>
@@ -166,7 +166,7 @@
                 <ParentName>FADetails</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>http://localhost/ABA_AcumaticaDB1/</SchemaUrl>
+        <SchemaUrl>http://localhost/LifeSync_2021R2/</SchemaUrl>
         <Sorting>
             <SortExp>
                 <DataField>FixedAsset.AssetCD</DataField>
@@ -747,6 +747,7 @@
                 <FullName>PX.Objects.FA.FABookBalance</FullName>
             </ReportTable>
         </Tables>
+        <Version>20201103</Version>
         <Sections>
             <PageHeader Name="pageHeaderSection1">
                 <ExcelMargin>
@@ -1088,7 +1089,7 @@
                         <Location>496px, 0px</Location>
                         <Size>70px, 14px</Size>
                         <StyleName>Normal</StyleName>
-                        <Value>=[FABookBalance.LastDeprPeriod]</Value>
+                        <Value>=[FADetails.ReceiptDate]</Value>
                     </TextBox>
                 </Items>
             </Detail>
@@ -1209,7 +1210,7 @@
                         <Location>496px, 4px</Location>
                         <Size>70px, 14px</Size>
                         <StyleName>Heading 1</StyleName>
-                        <Value>Last Depr.Period</Value>
+                        <Value>Receipt date</Value>
                     </TextBox>
                     <TextBox Name="textBox16">
                         <CanGrow>True</CanGrow>
