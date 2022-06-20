@@ -1,5 +1,5 @@
 ﻿<Report Name="lm602000.rpx">
-    <Report Name="report1" version="20201103">
+    <Report version="20201103" Name="report1">
         <Filters>
             <FilterExp>
                 <DataField>ARInvoice.RefNbr</DataField>
@@ -112,7 +112,7 @@
                 <ParentName>ARInvoice</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>http://localhost/AcumaticaLifeSync/</SchemaUrl>
+        <SchemaUrl>https://abamedical.acumatica.com/</SchemaUrl>
         <Tables>
             <ReportTable Name="Branch">
                 <Fields>
@@ -3452,6 +3452,7 @@
                 <FullName>PX.Objects.AR.ARAddress</FullName>
             </ReportTable>
         </Tables>
+        <Version>20201103</Version>
         <Sections>
             <PageHeader Name="pageHeaderSection1">
                 <Height>7.83069cm</Height>
@@ -3898,7 +3899,7 @@
                         <Value>=[SOLine.AlternateID]</Value>
                     </TextBox>
                     <TextBox Name="textBox42">
-                        <Format>='N0'</Format>
+                        <Format>='0.000'</Format>
                         <Location>616px, 0px</Location>
                         <Size>72px, 80px</Size>
                         <Style>
@@ -4145,7 +4146,7 @@
                         <Size>88px, 24px</Size>
                         <Style>
                             <Font>
-                                <Name>NSimSun</Name>
+                                <Name>nsimsun</Name>
                                 <Size>18px</Size>
                             </Font>
                         </Style>
