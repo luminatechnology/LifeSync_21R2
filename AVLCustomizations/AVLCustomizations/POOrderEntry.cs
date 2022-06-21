@@ -17,7 +17,8 @@ namespace PX.Objects.PO
         {
             var curPOOrder = (POOrder)Base.Caches[typeof(POOrder)].Current;
 
-            if (curPOOrder != null)
+            // Status != On hold or Pending Approve 才進行AVL檢核(避免AP Bill無法過帳)
+            if (curPOOrder != null && (curPOOrder.Status == "H" || curPOOrder.Status == "B"))
             {
                 foreach (POLine curPOOrderLineRow in Base.Transactions.Cache.Cached)
                 {
