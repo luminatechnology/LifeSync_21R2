@@ -1,5 +1,5 @@
 ﻿<Report Name="in615500.rpx">
-    <Report Name="report1" version="20201103">
+    <Report version="20201103" Name="report1">
         <ExcelColumns>
             <item>17</item>
             <item>18</item>
@@ -314,15 +314,11 @@
                         <ChildField>SubItemID</ChildField>
                         <ParentField>INSubItem.SubItemID</ParentField>
                     </RelationRow>
-                    <RelationRow>
-                        <ChildField>@ABAHK</ChildField>
-                        <ParentField>INItemXRef.BAccountID</ParentField>
-                    </RelationRow>
                 </Links>
                 <ParentName>InventoryItem</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>http://localhost/ABA_AcumaticaDB1/</SchemaUrl>
+        <SchemaUrl>https://abamedical.acumatica.com/</SchemaUrl>
         <Sorting>
             <SortExp>
                 <DataField>INTranCost.CreatedDateTime</DataField>
@@ -2610,6 +2606,7 @@
                 <FullName>PX.Objects.IN.InventoryItem</FullName>
             </ReportTable>
         </Tables>
+        <Version>20201103</Version>
         <ViewerFields>
             <ViewerField Name="INCostStatus.ReceiptNbr">
             </ViewerField>
