@@ -178,7 +178,7 @@ namespace LumCustomizations.DAC
         #endregion
 
         #region ProdLine        
-        [PXDBString(1, InputMask = "", IsUnicode = true)]
+        [PXDBString(2, InputMask = "", IsUnicode = true)]
         [PXUIField(DisplayName = "Production Line", Enabled = false)]
         public virtual string ProdLine { get; set; }
         public abstract class prodLine : PX.Data.BQL.BqlString.Field<LumShipmentPlan.prodLine> { }
