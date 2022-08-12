@@ -1,5 +1,6 @@
 ﻿using LumCustomizations.DAC;
 using LUMCustomizations.Library;
+using PX.Common;
 using PX.Data;
 using PX.Data.BQL;
 using PX.Data.BQL.Fluent;
@@ -63,6 +64,21 @@ namespace PX.Objects.PO
                 throw new PXException("Capex Tracking Nbr is mandatory for this PO");
         }
 
+        public virtual void _(Events.RowSelected<POLine> e, PXRowSelected baseMethod)
+        {
+            baseMethod?.Invoke(e.Cache, e.Args);
+            // 設定Complete = Enable(條件與原廠Code一樣)
+            var row = e.Row;
+            bool isLinkedToSO = row.Completed == true && Base.IsLinkedToSO(row);
+            if (Base.Document.Current.Hold != true || isLinkedToSO)
+            {
+                if (Base.Document.Current.Status.IsIn(POOrderStatus.PendingApproval, POOrderStatus.Open)
+                    && !isLinkedToSO)
+                    if (!(row.ReceivedQty == 0 || row.ReceivedQty >= row.OrderQty * row.RcptQtyThreshold / 100))
+                        PXUIFieldAttribute.SetEnabled<POLine.completed>(e.Cache, e.Row, true);
+            }
+        }
+
         /// <summary> Events.RowPersisting POLine </summary>
         public virtual void _(Events.RowPersisting<POLine> e, PXRowPersisting baseMethod)
         {
@@ -85,7 +101,6 @@ namespace PX.Objects.PO
                         "Capex Tracking Nbr is mandatory for this PO", PXErrorLevel.Error)));
             }
         }
-
 
         #region Action
         public PXAction<POOrder> DomesticPO;
