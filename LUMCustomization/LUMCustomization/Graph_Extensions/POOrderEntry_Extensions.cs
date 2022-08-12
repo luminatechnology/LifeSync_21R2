@@ -69,6 +69,8 @@ namespace PX.Objects.PO
             baseMethod?.Invoke(e.Cache, e.Args);
             // 設定Complete = Enable(條件與原廠Code一樣)
             var row = e.Row;
+            if (row == null) return;
+            if (Base.IsExport && !Base.IsContractBasedAPI) return;//for performance 
             bool isLinkedToSO = row.Completed == true && Base.IsLinkedToSO(row);
             if (Base.Document.Current.Hold != true || isLinkedToSO)
             {
