@@ -318,8 +318,7 @@ namespace LumCustomizations.Graph
                 row.CartonQty = qtyCarton == 0 ? 5000M : (decimal)e.NewValue / qtyCarton;
                 row.NetWeight = (decimal)e.NewValue * item.BaseItemWeight;
                 row.GrossWeight = (decimal)e.NewValue * grsWeight;
-                // Round(Carton Qty / CARTONPALT in item attribute) * (PALLETWGT in item attribute) 四捨五入
-                row.PalletWeight = Math.Round(row.CartonQty.Value / cartonPal * palletWgt, 0);
+                row.PalletWeight = Math.Round(Math.Ceiling(row.CartonQty.Value / cartonPal) * palletWgt, 0);
                 row.MEAS = row.CartonQty * item.BaseItemVolume;
                 row.DimWeight = row.CartonQty * item.BaseItemVolume * 1000000M / 5000M;
             }
