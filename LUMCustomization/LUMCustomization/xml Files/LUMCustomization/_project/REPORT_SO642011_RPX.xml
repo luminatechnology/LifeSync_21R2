@@ -1,5 +1,5 @@
 ﻿<Report Name="so642011.rpx">
-    <Report Name="report1" version="20201103">
+    <Report version="20201103" Name="report1">
         <CommonSettings>
             <ViewPdf>True</ViewPdf>
         </CommonSettings>
@@ -4875,6 +4875,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                 <FullName>PX.Objects.SO.SOOrder</FullName>
             </ReportTable>
         </Tables>
+        <Version>20201103</Version>
         <ViewerFields>
             <ViewerField Name="SOShipment.ShipmentNbr">
             </ViewerField>
@@ -5132,7 +5133,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                             <TextAlign>Left</TextAlign>
                         </Style>
                         <StyleName>Item Normal</StyleName>
-                        <Value>=IIf([SOLine.AlternateID] &lt;&gt; NULL,[SOLine.AlternateID] + '{br}', '') + [SOLine.TranDesc]</Value>
+                        <Value>=IIf([SOLine.AlternateID] &lt;&gt; NULL,[SOLine.AlternateID] + '{br}', '') + ISNULL([SOLine.TranDesc],'')</Value>
                     </TextBox>
                     <TextBox Name="textBox5">
                         <Location>252px, 4px</Location>
@@ -5440,7 +5441,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                         <Location>128px, 80px</Location>
                                         <Size>616px, 48px</Size>
                                         <StyleName>Item Normal</StyleName>
-                                        <Value>=IIf([BAccount.LegalName]&lt;&gt; null, [BAccount.LegalName] + '{br}','')#010;+IIf([CompanyAddress.AddressLine1]&lt;&gt; null, [CompanyAddress.AddressLine1], '')#010;+IIf([CompanyAddress.AddressLine2]&lt;&gt;null,[CompanyAddress.AddressLine2],'')#010;+IIf([CompanyAddress.City]&lt;&gt;null, [CompanyAddress.City],'')#010;+IIf([CompanyAddress.City]&lt;&gt;null And [CompanyAddress.State]&lt;&gt;null, ', ', '')#010;+IIf([CompanyAddress.State]&lt;&gt;null,[CompanyAddress.State],'')#010;+IIf([CompanyAddress.PostalCode]&lt;&gt;null And [CompanyAddress.State]&lt;&gt;null, ', ', ' ')#010;+IIf([CompanyAddress.PostalCode]&lt;&gt;null,[CompanyAddress.PostalCode],'')#010;+IIf([CompanyContact.Phone1] &lt;&gt;null, '{br}' + 'Phone: ' + [CompanyContact.Phone1],'')</Value>
+                                        <Value>=IIf([BAccount.LegalName]&lt;&gt; null, [BAccount.LegalName] + '{br}','')#010;+IIf([CompanyAddress.AddressLine1]&lt;&gt; null, [CompanyAddress.AddressLine1], '')#010;+IIf([CompanyAddress.AddressLine2]&lt;&gt;null,[CompanyAddress.AddressLine2],'')#010;+IIf([CompanyAddress.City]&lt;&gt;null, [CompanyAddress.City],'')#010;+IIf([CompanyAddress.City]&lt;&gt;null And [CompanyAddress.State]&lt;&gt;null, ', ', '')#010;+IIf([CompanyAddress.State]&lt;&gt;null,[CompanyAddress.State],'')#010;+IIf([CompanyAddress.PostalCode]&lt;&gt;null And [CompanyAddress.State]&lt;&gt;null, ', ', ' ')#010;+IIf([CompanyAddress.PostalCode]&lt;&gt;null,[CompanyAddress.PostalCode],'')#010;+IIF([CompanyAddress.CountryID_description]&lt;&gt; null,[CompanyAddress.CountryID_description],'')#010;+IIf([CompanyContact.Phone1] &lt;&gt;null, '{br}' + 'Phone: ' + [CompanyContact.Phone1],'')</Value>
                                     </TextBox>
                                     <TextBox Name="textBox27">
                                         <Location>128px, 8px</Location>
