@@ -1,5 +1,5 @@
 ﻿<Report Name="lm602030.rpx">
-    <Report Name="report1" version="20201103">
+    <Report version="20201103" Name="report1">
         <Filters>
             <FilterExp>
                 <DataField>LumShipmentPlan.ShipmentNbr</DataField>
@@ -181,7 +181,7 @@
                 <ParentName>Customer</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>http://localhost/AcumaticaLifeSync/</SchemaUrl>
+        <SchemaUrl>https://abamedical.acumatica.com/</SchemaUrl>
         <Sorting>
             <SortExp>
                 <DataField>InventoryItem.InventoryCD</DataField>
@@ -5914,6 +5914,7 @@
                 <FullName>PX.Objects.AR.Customer</FullName>
             </ReportTable>
         </Tables>
+        <Version>20201103</Version>
         <Sections>
             <PageHeader Name="pageHeaderSection1">
                 <Height>7.83069cm</Height>
@@ -6098,7 +6099,7 @@
                             </Padding>
                             <TextAlign>Left</TextAlign>
                         </Style>
-                        <Value>=[Address.AddressLine2]</Value>
+                        <Value>=[Address.AddressLine2]+' '+[Address.CountryID_description]</Value>
                     </TextBox>
                     <TextBox Name="textBox22">
                         <Location>400px, 224px</Location>
