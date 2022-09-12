@@ -39,6 +39,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Bin\HtmlAgilityPack.dll</HintPath>
     </Reference>
+    <Reference Include="LuminaExcelLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Bin\LuminaExcelLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="NPOI, Version=2.5.2.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Bin\NPOI.dll</HintPath>
@@ -117,7 +121,6 @@
     <Compile Include="DAC_Extensions\SOShipLineExtensions.cs" />
     <Compile Include="DAC_Extensions\SOShipmentExtensions.cs" />
     <Compile Include="Descriptor\Attribute.cs" />
-    <Compile Include="Examples.cs" />
     <Compile Include="Graph\ICMBasedOnINMaint.cs" />
     <Compile Include="Graph\ICMSummaryMaint.cs" />
     <Compile Include="Graph\InternalCostModelMaint.cs" />
@@ -137,6 +140,7 @@
     <Compile Include="Graph_Extensions\APPaymentEntryExt.cs" />
     <Compile Include="Graph_Extensions\ARInvoiceEntry_Extension.cs" />
     <Compile Include="Graph_Extensions\ARPaymentEntry_Extension.cs" />
+    <Compile Include="Graph_Extensions\BOMCostRoll.cs" />
     <Compile Include="Graph_Extensions\INIssueEntry.cs" />
     <Compile Include="Graph_Extensions\INPIReview_Extension.cs" />
     <Compile Include="Graph_Extensions\INReceiptEntry_Extension.cs" />
@@ -158,12 +162,6 @@
     <Compile Include="Graph_Extensions\VendorShipmentEntry_Extension.cs" />
     <Compile Include="Library\LumLibrary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\LuminaExcelLibrary\LuminaExcelLibrary.csproj">
-      <Project>{effc735d-d0ec-400a-9149-1735779be9fb}</Project>
-      <Name>LuminaExcelLibrary</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
