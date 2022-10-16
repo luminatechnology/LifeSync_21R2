@@ -6,10 +6,11 @@ using PX.Data.BQL.Fluent;
 using PX.Objects.AM;
 using PX.Objects.IN;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PX.Objects.AM 
+namespace PX.Objects.AM
 {
     public class MaterialEntry_Extension : PXGraphExtension<MaterialEntry>
     {
@@ -92,6 +93,28 @@ namespace PX.Objects.AM
 
         #endregion
 
+        #region Override Action
+        public PXAction<AMBatch> release;
+        [PXUIField(DisplayName = Messages.Release, MapEnableRights = PXCacheRights.Update, MapViewRights = PXCacheRights.Update)]
+        [PXProcessButton]
+        public virtual IEnumerable Release(PXAdapter adapter)
+        {
+            var validResult = true;
+            foreach (var row in Base.transactions.Select().RowCast<AMMTran>())
+            {
+                if (!ValidStandardCost(row))
+                {
+                    Base.transactions.Cache.RaiseExceptionHandling<AMMTran.unitCost>(row, row.UnitCost,
+                        new PXSetPropertyException<AMMTran.unitCost>($"{GetInventoryItemInfo(row.InventoryID)?.InventoryCD} 沒有維護標準成本，請通知採購。採購維護標準成本之後請刪除此領料單並重新建立", PXErrorLevel.Error));
+                    validResult = false;
+                }
+            }
+            if (!validResult)
+                throw new PXException($"沒有維護標準成本，請通知採購。採購維護標準成本之後請刪除此領料單並重新建立");
+            return Base.Release(adapter);
+        }
+        #endregion
+
         #region controll customize button based on country ID
         protected void _(Events.RowSelected<AMBatch> e)
         {
@@ -105,6 +128,7 @@ namespace PX.Objects.AM
         }
         #endregion
 
+        #region Events
         public virtual void _(Events.FieldVerifying<AMMTran.qty> e, PXFieldVerifying baseMethod)
         {
             var row = e.Row as AMMTran;
@@ -177,6 +201,11 @@ namespace PX.Objects.AM
                 if (!valid)
                     throw new PXException("You cannot save, please check error message");
             }
+
+            // Valid Standard Cost
+            if (!ValidStandardCost(row))
+                e.Cache.RaiseExceptionHandling<AMMTran.unitCost>(e.Row, (e.Row as AMMTran).UnitCost,
+                    new PXSetPropertyException<AMMTran.unitCost>($"{GetInventoryItemInfo(row.InventoryID)?.InventoryCD} 沒有維護標準成本，請通知採購。採購維護標準成本之後請刪除此領料單並重新建立", PXErrorLevel.Error));
         }
 
         public virtual void _(Events.FieldUpdated<AMMTranExt.usrOverIssue> e)
@@ -215,6 +244,36 @@ namespace PX.Objects.AM
                 }
             }
         }
+
+        public virtual void _(Events.FieldUpdated<AMMTran.inventoryID> e, PXFieldUpdated baseHandler)
+        {
+            baseHandler?.Invoke(e.Cache, e.Args);
+            var row = e.Row as AMMTran;
+            if (row != null && !ValidStandardCost(row))
+                Base.transactions.Cache.RaiseExceptionHandling<AMMTran.unitCost>(row, row.UnitCost,
+                   new PXSetPropertyException<AMMTran.unitCost>($"{GetInventoryItemInfo(row.InventoryID)?.InventoryCD} 沒有維護標準成本，請通知採購。採購維護標準成本之後請刪除此領料單並重新建立", PXErrorLevel.Error));
+        }
+        #endregion
+
+        #region Method
+
+        public bool ValidStandardCost(AMMTran row)
+        {
+            if (row == null)
+                return true;
+            var setup = SelectFrom<INSetup>.View.Select(Base).TopFirst;
+            if ((setup.GetExtension<INSetupExt>()?.UsrValidStandardCostInMaterials ?? false))
+            {
+                // and status=Balanced, system check the Unit Cost in each line. If the unit cost is 0
+                if (Base.batch.Current != null && Base.batch.Current?.Status == "B" && row.UnitCost == 0)
+                    return false;
+            }
+            return true;
+        }
+
+        public InventoryItem GetInventoryItemInfo(int? inventoryID)
+           => InventoryItem.PK.Find(Base, inventoryID);
+        #endregion
 
     }
 }

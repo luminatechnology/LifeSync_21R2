@@ -91,6 +91,14 @@ namespace PX.Objects.PO
                 (string)(Base.Document.Cache.GetValueExt(Base.Document.Current,
                         PX.Objects.CS.Messages.Attribute + "POTYPE") as
                     PXFieldState)?.Value;
+
+            // Purchase Order Validation(Standard Cost)
+            if (!ValidStandardCost(row))
+            {
+                e.Cache.RaiseExceptionHandling<POLine.lineType>(e.Row, row.LineType,
+                    new PXSetPropertyException<POLine.lineType>($"{GetInventoryItemInfo(row.InventoryID)?.InventoryCD} 沒有維護標準成本，請通知採購。採購維護標準成本之後請刪除此領料單並重新建立", PXErrorLevel.Error));
+            }
+
             if (row == null || string.IsNullOrEmpty(poType))
                 return;
             // Valid UsrCapexTrackingNbr
@@ -162,7 +170,39 @@ namespace PX.Objects.PO
                                 Where<InventoryItem.inventoryID.IsEqual<@P.AsInt>>.View.
                                 Select(Base, ((POLine)e.Row).InventoryID);
             e.Cache.SetValue<POLineExt.usrBubbleNumber>(e.Row, _bubbleNumber.GetItem<CSAnswers>().Value);
+
+            // Purchase Order Validation(Standard Cost)
+            if (!ValidStandardCost(e.Row as POLine))
+                e.Cache.RaiseExceptionHandling<POLine.lineType>(e.Row, (e.Row as POLine).LineType,
+                          new PXSetPropertyException<POLine.lineType>($"{GetInventoryItemInfo((e.Row as POLine).InventoryID)?.InventoryCD} 沒有維護標準成本，請通知採購。採購維護標準成本之後請刪除此領料單並重新建立", PXErrorLevel.Error));
+
         }
+        #endregion
+
+        #region Method
+
+        public bool ValidStandardCost(POLine row)
+        {
+            if (row == null)
+                return true;
+            var setup = SelectFrom<INSetup>.View.Select(Base).TopFirst;
+            if ((setup.GetExtension<INSetupExt>()?.UsrValidStandardCostInPurchase ?? false))
+            {
+                // Line Type = (‘Goods for IN’ or ‘Goods for SO’ or ‘Goods for MFG’)
+                if (row.LineType == POLineType.GoodsForInventory || row.LineType == POLineType.GoodsForSalesOrder || row.LineType == POLineType.GoodsForManufacturing)
+                {
+                    var inventoryInfo = InventoryItem.PK.Find(Base, row?.InventoryID);
+                    var itemCurySettingInfo = InventoryItemCurySettings.PK.Find(Base, row.InventoryID, Base.Document.Current?.CuryID);
+                    if ((itemCurySettingInfo?.StdCost ?? 0) == 0)
+                        return false;
+                }
+            }
+            return true;
+        }
+
+        public InventoryItem GetInventoryItemInfo(int? inventoryID)
+           => InventoryItem.PK.Find(Base, inventoryID);
+
         #endregion
     }
 }

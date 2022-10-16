@@ -96,6 +96,7 @@
     <Compile Include="DAC\LumDeadStockEnqResult.cs" />
     <Compile Include="DAC\LumINItemCostHist.cs" />
     <Compile Include="DAC\LumItemsCOC.cs" />
+    <Compile Include="DAC\LUMProductionScrap.cs" />
     <Compile Include="DAC\LumShipmentPlan.cs" />
     <Compile Include="DAC\LUMStdBomCost.cs" />
     <Compile Include="DAC\PrintParameters.cs" />
@@ -110,6 +111,7 @@
     <Compile Include="DAC_Extensions\BatchExtensions.cs" />
     <Compile Include="DAC_Extensions\INItemLotSerialExtensions.cs" />
     <Compile Include="DAC_Extensions\INRegisterExtension.cs" />
+    <Compile Include="DAC_Extensions\INSetupExtension.cs" />
     <Compile Include="DAC_Extensions\POLineExtensions.cs" />
     <Compile Include="DAC_Extensions\POReceiptExtension.cs" />
     <Compile Include="DAC_Extensions\SOLineExtensions.cs" />
@@ -129,6 +131,7 @@
     <Compile Include="Graph\LUMMultiLevelBomInq.cs" />
     <Compile Include="Graph\LUMMultiLevelBomProc.cs" />
     <Compile Include="Graph\LumPIUnitPriceMaint.cs" />
+    <Compile Include="Graph\LUMProductionScrapMaint.cs" />
     <Compile Include="Graph\LumShipmentPlanMaint.cs" />
     <Compile Include="Graph\LUMUpdateBOMQty.cs" />
     <Compile Include="Graph_Extensions\AMReleaseProcess_Extension.cs" />
@@ -141,6 +144,7 @@
     <Compile Include="Graph_Extensions\INPIReview_Extension.cs" />
     <Compile Include="Graph_Extensions\INReceiptEntry_Extension.cs" />
     <Compile Include="Graph_Extensions\INTransferEntry_Extension.cs" />
+    <Compile Include="Graph_Extensions\INUpdateStdCost_Extension.cs" />
     <Compile Include="Graph_Extensions\JournalEntry_Extension.cs" />
     <Compile Include="Graph_Extensions\MaterialEntry.cs" />
     <Compile Include="Graph_Extensions\MatlWizard1_Extension.cs" />

@@ -1,0 +1,5 @@
+﻿<Table TableName="INSetup">
+    <Column TableName="INSetup" ColumnName="UsrValidStandardCostInPurchase" ColumnType="bool" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+    <Column TableName="INSetup" ColumnName="UsrValidStandardCostInMaterials" ColumnType="bool" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+    <Column TableName="INSetup" ColumnName="UsrValidStandardCostInMove" ColumnType="bool" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+</Table>
