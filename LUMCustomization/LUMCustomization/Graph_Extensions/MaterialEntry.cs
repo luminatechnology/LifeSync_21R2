@@ -4,6 +4,7 @@ using PX.Data;
 using PX.Data.BQL;
 using PX.Data.BQL.Fluent;
 using PX.Objects.AM;
+using PX.Objects.CS;
 using PX.Objects.IN;
 using System;
 using System.Collections;
@@ -24,6 +25,30 @@ namespace PX.Objects.AM
                 ReportAction.MenuAutoOpen = true;
             }
         }
+
+        #region Delegate Methods
+
+        public delegate void PersistDelegate();
+        [PXOverride]
+        public void Persist(PersistDelegate baseMethod)
+        {
+            var validResult = true;
+            foreach (var row in Base.transactions.Select().RowCast<AMMTran>())
+            {
+                if (!ValidStandardCost(row))
+                {
+                    Base.transactions.Cache.RaiseExceptionHandling<AMMTran.unitCost>(row, row.UnitCost,
+                        new PXSetPropertyException<AMMTran.unitCost>($"{GetInventoryItemInfo(row.InventoryID)?.InventoryCD} 沒有維護標準成本，請通知採購。採購維護標準成本之後請刪除此領料單並重新建立", PXErrorLevel.Error));
+                    validResult = false;
+                }
+            }
+            if (!validResult)
+                throw new PXException($"沒有維護標準成本，請通知採購。採購維護標準成本之後請刪除此領料單並重新建立");
+
+            baseMethod();
+        }
+
+        #endregion
 
         #region Override transactions view
         [PXImport(typeof(AMBatch))]
@@ -262,10 +287,14 @@ namespace PX.Objects.AM
             if (row == null)
                 return true;
             var setup = SelectFrom<INSetup>.View.Select(Base).TopFirst;
+            var attrVENDCONSIG = SelectFrom<CSAnswers>
+                      .Where<CSAnswers.refNoteID.IsEqual<P.AsGuid>
+                        .And<CSAnswers.attributeID.IsEqual<P.AsString>>>
+                      .View.Select(Base, GetInventoryItemInfo(row.InventoryID)?.NoteID, "VENDCONSIG").TopFirst;
             if ((setup.GetExtension<INSetupExt>()?.UsrValidStandardCostInMaterials ?? false))
             {
                 // and status=Balanced, system check the Unit Cost in each line. If the unit cost is 0
-                if (Base.batch.Current != null && Base.batch.Current?.Status == "B" && row.UnitCost == 0)
+                if (Base.batch.Current != null && Base.batch.Current?.Status == "B" && row.UnitCost == 0 && attrVENDCONSIG?.Value != "1")
                     return false;
             }
             return true;

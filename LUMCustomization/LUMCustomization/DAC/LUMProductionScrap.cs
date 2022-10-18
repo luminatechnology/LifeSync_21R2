@@ -39,12 +39,10 @@ namespace LUMCustomizations.DAC
         #region ProdOrderType
         [PXDBString(2, IsUnicode = true, InputMask = "")]
         [PXUIField(DisplayName = "Prod Order Type", Required = true, Enabled = false)]
-        //[PXDefault(typeof(AMPSetup.defaultOrderType))]
         [PXDefault(typeof(SelectFrom<AMProdItem>
                          .Where<AMProdItem.prodOrdID.IsEqual<LUMProductionScrap.prodOrderID.FromCurrent>>
                          .SearchFor<AMProdItem.orderType>))]
         [PXRestrictor(typeof(Where<AMOrderType.active, Equal<True>>), PX.Objects.SO.Messages.OrderTypeInactive)]
-        //[AMOrderTypeSelector]
         public virtual string ProdOrderType { get; set; }
         public abstract class prodOrderType : PX.Data.BQL.BqlString.Field<prodOrderType> { }
         #endregion
@@ -109,7 +107,7 @@ namespace LUMCustomizations.DAC
         #endregion
 
         #region Qty
-        [PXDBDecimal()]
+        [PXDBDecimal(3)]
         [PXUIField(DisplayName = "Qty")]
         public virtual Decimal? Qty { get; set; }
         public abstract class qty : PX.Data.BQL.BqlDecimal.Field<qty> { }

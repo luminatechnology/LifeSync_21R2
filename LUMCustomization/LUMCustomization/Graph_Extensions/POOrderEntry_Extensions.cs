@@ -96,7 +96,7 @@ namespace PX.Objects.PO
             if (!ValidStandardCost(row))
             {
                 e.Cache.RaiseExceptionHandling<POLine.lineType>(e.Row, row.LineType,
-                    new PXSetPropertyException<POLine.lineType>($"{GetInventoryItemInfo(row.InventoryID)?.InventoryCD} 沒有維護標準成本，請通知採購。採購維護標準成本之後請刪除此領料單並重新建立", PXErrorLevel.Error));
+                    new PXSetPropertyException<POLine.lineType>($"{GetInventoryItemInfo(row.InventoryID)?.InventoryCD} 沒有維護標準成本，請通知採購。", PXErrorLevel.Error));
             }
 
             if (row == null || string.IsNullOrEmpty(poType))
@@ -174,7 +174,7 @@ namespace PX.Objects.PO
             // Purchase Order Validation(Standard Cost)
             if (!ValidStandardCost(e.Row as POLine))
                 e.Cache.RaiseExceptionHandling<POLine.lineType>(e.Row, (e.Row as POLine).LineType,
-                          new PXSetPropertyException<POLine.lineType>($"{GetInventoryItemInfo((e.Row as POLine).InventoryID)?.InventoryCD} 沒有維護標準成本，請通知採購。採購維護標準成本之後請刪除此領料單並重新建立", PXErrorLevel.Error));
+                          new PXSetPropertyException<POLine.lineType>($"{GetInventoryItemInfo((e.Row as POLine).InventoryID)?.InventoryCD} 沒有維護標準成本，請通知採購。", PXErrorLevel.Error));
 
         }
         #endregion
@@ -192,8 +192,12 @@ namespace PX.Objects.PO
                 if (row.LineType == POLineType.GoodsForInventory || row.LineType == POLineType.GoodsForSalesOrder || row.LineType == POLineType.GoodsForManufacturing)
                 {
                     var inventoryInfo = InventoryItem.PK.Find(Base, row?.InventoryID);
+                    var attrVENDCONSIG = SelectFrom<CSAnswers>
+                    .Where<CSAnswers.refNoteID.IsEqual<P.AsGuid>
+                      .And<CSAnswers.attributeID.IsEqual<P.AsString>>>
+                    .View.Select(Base, inventoryInfo?.NoteID, "VENDCONSIG").TopFirst;
                     var itemCurySettingInfo = InventoryItemCurySettings.PK.Find(Base, row.InventoryID, Base.Document.Current?.CuryID);
-                    if ((itemCurySettingInfo?.StdCost ?? 0) == 0)
+                    if ((itemCurySettingInfo?.StdCost ?? 0) == 0 && attrVENDCONSIG.Value != "1")
                         return false;
                 }
             }
