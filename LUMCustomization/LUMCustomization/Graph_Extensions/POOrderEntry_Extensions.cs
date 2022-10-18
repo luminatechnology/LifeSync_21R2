@@ -197,7 +197,7 @@ namespace PX.Objects.PO
                       .And<CSAnswers.attributeID.IsEqual<P.AsString>>>
                     .View.Select(Base, inventoryInfo?.NoteID, "VENDCONSIG").TopFirst;
                     var itemCurySettingInfo = InventoryItemCurySettings.PK.Find(Base, row.InventoryID, Base.Document.Current?.CuryID);
-                    if ((itemCurySettingInfo?.StdCost ?? 0) == 0 && attrVENDCONSIG.Value != "1")
+                    if ((itemCurySettingInfo?.StdCost ?? 0) == 0 && attrVENDCONSIG?.Value != "1")
                         return false;
                 }
             }
