@@ -39,6 +39,26 @@ namespace PX.Objects.PO
             }
         }
 
+        public delegate void PersistDelegate();
+        [PXOverride]
+        public void Persist(PersistDelegate baseMethod)
+        {
+            var validResult = true;
+            foreach (var row in Base.Transactions.Select().RowCast<POLine>())
+            {
+                if (!ValidStandardCost(row))
+                {
+                    Base.Transactions.Cache.RaiseExceptionHandling<POLine.lineType>(row, row?.LineType,
+                        new PXSetPropertyException<POLine.lineType>($"{GetInventoryItemInfo(row?.InventoryID)?.InventoryCD} 沒有維護標準成本，請通知採購。", PXErrorLevel.Error));
+                    validResult = false;
+                }
+            }
+            if (!validResult)
+                throw new PXException($"沒有維護標準成本，請通知採購。");
+
+            baseMethod();
+        }
+
         public virtual void _(Events.RowSelected<POOrder> e)
         {
             var _library = new LumLibrary();
@@ -196,7 +216,9 @@ namespace PX.Objects.PO
                     .Where<CSAnswers.refNoteID.IsEqual<P.AsGuid>
                       .And<CSAnswers.attributeID.IsEqual<P.AsString>>>
                     .View.Select(Base, inventoryInfo?.NoteID, "VENDCONSIG").TopFirst;
-                    var itemCurySettingInfo = InventoryItemCurySettings.PK.Find(Base, row.InventoryID, Base.Document.Current?.CuryID);
+                    var itemCurySettingInfo = SelectFrom<InventoryItemCurySettings>
+                                             .Where<InventoryItemCurySettings.inventoryID.IsEqual<P.AsInt>>
+                                             .View.Select(Base, row?.InventoryID).TopFirst;
                     if ((itemCurySettingInfo?.StdCost ?? 0) == 0 && attrVENDCONSIG?.Value != "1")
                         return false;
                 }
