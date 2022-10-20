@@ -36,7 +36,8 @@ namespace PX.Objects.RQ
                         var itemCurySettingInfo = SelectFrom<InventoryItemCurySettings>
                                                  .Where<InventoryItemCurySettings.inventoryID.IsEqual<P.AsInt>>
                                                  .View.Select(Base, item?.InventoryID).TopFirst;
-                        if ((itemCurySettingInfo?.StdCost ?? 0) == 0 && attrVENDCONSIG?.Value != "1")
+                        var itemClassInfo = INItemClass.PK.Find(Base, inventoryInfo?.ItemClassID);
+                        if ((itemCurySettingInfo?.StdCost ?? 0) == 0 && attrVENDCONSIG?.Value != "1" && itemClassInfo?.ItemClassCD?.Trim() != "MRO")
                         {
                             Base.Lines.Cache.RaiseExceptionHandling<RQRequisitionLine.lineType>(item, item?.LineType,
                                 new PXSetPropertyException<RQRequisitionLine.lineType>($"{inventoryInfo?.InventoryCD} 沒有維護標準成本，請通知採購。", PXErrorLevel.Error));

@@ -287,14 +287,16 @@ namespace PX.Objects.AM
             if (row == null)
                 return true;
             var setup = SelectFrom<INSetup>.View.Select(Base).TopFirst;
+            var inventoryInfo = GetInventoryItemInfo(row.InventoryID);
             var attrVENDCONSIG = SelectFrom<CSAnswers>
                       .Where<CSAnswers.refNoteID.IsEqual<P.AsGuid>
                         .And<CSAnswers.attributeID.IsEqual<P.AsString>>>
-                      .View.Select(Base, GetInventoryItemInfo(row.InventoryID)?.NoteID, "VENDCONSIG").TopFirst;
+                      .View.Select(Base, inventoryInfo?.NoteID, "VENDCONSIG").TopFirst;
+            var itemClassInfo = INItemClass.PK.Find(Base, inventoryInfo?.ItemClassID);
             if ((setup.GetExtension<INSetupExt>()?.UsrValidStandardCostInMaterials ?? false))
             {
                 // and status=Balanced, system check the Unit Cost in each line. If the unit cost is 0
-                if (Base.batch.Current != null && Base.batch.Current?.Status == "B" && row.UnitCost == 0 && attrVENDCONSIG?.Value != "1")
+                if (Base.batch.Current != null && Base.batch.Current?.Status == "B" && row.UnitCost == 0 && attrVENDCONSIG?.Value != "1" && itemClassInfo?.ItemClassCD?.Trim() != "MRO")
                     return false;
             }
             return true;

@@ -219,7 +219,8 @@ namespace PX.Objects.PO
                     var itemCurySettingInfo = SelectFrom<InventoryItemCurySettings>
                                              .Where<InventoryItemCurySettings.inventoryID.IsEqual<P.AsInt>>
                                              .View.Select(Base, row?.InventoryID).TopFirst;
-                    if ((itemCurySettingInfo?.StdCost ?? 0) == 0 && attrVENDCONSIG?.Value != "1")
+                    var itemClassInfo = INItemClass.PK.Find(Base, inventoryInfo?.ItemClassID);
+                    if ((itemCurySettingInfo?.StdCost ?? 0) == 0 && attrVENDCONSIG?.Value != "1" && itemClassInfo?.ItemClassCD?.Trim() != "MRO")
                         return false;
                 }
             }
