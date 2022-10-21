@@ -220,7 +220,11 @@ namespace PX.Objects.PO
                                              .Where<InventoryItemCurySettings.inventoryID.IsEqual<P.AsInt>>
                                              .View.Select(Base, row?.InventoryID).TopFirst;
                     var itemClassInfo = INItemClass.PK.Find(Base, inventoryInfo?.ItemClassID);
-                    if ((itemCurySettingInfo?.StdCost ?? 0) == 0 && attrVENDCONSIG?.Value != "1" && itemClassInfo?.ItemClassCD?.Trim() != "MRO")
+                    var excludeBuildingID = SelectFrom<INSiteBuilding>
+                                           .Where<INSiteBuilding.buildingCD.IsEqual<P.AsString>>
+                                           .View.Select(Base, "MARK").TopFirst?.BuildingID ?? -1;
+                    var excludeWarehouseID = INSite.PK.Find(Base,row?.SiteID);
+                    if ((itemCurySettingInfo?.StdCost ?? 0) == 0 && attrVENDCONSIG?.Value != "1" && itemClassInfo?.ItemClassCD?.Trim() != "MRO" && excludeWarehouseID?.BuildingID != excludeBuildingID)
                         return false;
                 }
             }

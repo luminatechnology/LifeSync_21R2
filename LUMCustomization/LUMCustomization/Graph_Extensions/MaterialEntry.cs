@@ -293,10 +293,14 @@ namespace PX.Objects.AM
                         .And<CSAnswers.attributeID.IsEqual<P.AsString>>>
                       .View.Select(Base, inventoryInfo?.NoteID, "VENDCONSIG").TopFirst;
             var itemClassInfo = INItemClass.PK.Find(Base, inventoryInfo?.ItemClassID);
+            var excludeBuildingID = SelectFrom<INSiteBuilding>
+                                   .Where<INSiteBuilding.buildingCD.IsEqual<P.AsString>>
+                                   .View.Select(Base, "MARK").TopFirst?.BuildingID ?? -1;
+            var excludeWarehouseID = INSite.PK.Find(Base, row?.SiteID);
             if ((setup.GetExtension<INSetupExt>()?.UsrValidStandardCostInMaterials ?? false))
             {
                 // and status=Balanced, system check the Unit Cost in each line. If the unit cost is 0
-                if (Base.batch.Current != null && Base.batch.Current?.Status == "B" && row.UnitCost == 0 && attrVENDCONSIG?.Value != "1" && itemClassInfo?.ItemClassCD?.Trim() != "MRO")
+                if (Base.batch.Current != null && Base.batch.Current?.Status == "B" && row.UnitCost == 0 && attrVENDCONSIG?.Value != "1" && itemClassInfo?.ItemClassCD?.Trim() != "MRO" && excludeWarehouseID?.BuildingID != excludeBuildingID)
                     return false;
             }
             return true;
