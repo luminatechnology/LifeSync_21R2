@@ -11,9 +11,18 @@ namespace LUMCustomization.DAC
     [PXCacheName("LUMProductionScrapDetails")]
     public class LUMProductionScrapDetails : IBqlTable
     {
+
+        #region FK
+        public class FK
+        {
+            public class ID : LUMProductionScrap.PK.ForeignKeyOf<LUMProductionScrapDetails>.By<scrapID> { }
+        }
+        #endregion
+
         #region ScrapID
         [PXDefault(typeof(LUMProductionScrap.scrapID))]
         [PXDBString(15, IsKey = true, IsUnicode = true, InputMask = "")]
+        [PXParent(typeof(FK.ID))]
         [PXUIField(DisplayName = "Scrap ID", Visible = false, Enabled = false)]
         public virtual string ScrapID { get; set; }
         public abstract class scrapID : PX.Data.BQL.BqlString.Field<scrapID> { }
@@ -25,14 +34,6 @@ namespace LUMCustomization.DAC
         [PXUIField(DisplayName = "Line Nbr", Visible = false, Enabled = false)]
         public virtual int? LineNbr { get; set; }
         public abstract class lineNbr : PX.Data.BQL.BqlInt.Field<lineNbr> { }
-        #endregion
-
-        #region Confirmed
-        [PXDBBool()]
-        [PXDefault(false)]
-        [PXUIField(DisplayName = "Confirmed")]
-        public virtual bool? Confirmed { get; set; }
-        public abstract class confirmed : PX.Data.BQL.BqlBool.Field<confirmed> { }
         #endregion
 
         #region InventoryID

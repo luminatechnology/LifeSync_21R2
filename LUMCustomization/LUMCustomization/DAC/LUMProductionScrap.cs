@@ -1,6 +1,7 @@
 ﻿using System;
 using PX.Data;
 using PX.Data.BQL.Fluent;
+using PX.Data.ReferentialIntegrity.Attributes;
 using PX.Objects.AM;
 using PX.Objects.AM.Attributes;
 using PX.Objects.CS;
@@ -12,6 +13,11 @@ namespace LUMCustomization.DAC
     [PXCacheName("LUMProductionScrap")]
     public class LUMProductionScrap : IBqlTable
     {
+        public class PK : PrimaryKeyOf<LUMProductionScrap>.By<scrapID>
+        {
+            public static LUMProductionScrap Find(PXGraph graph, string scrapID) => FindBy(graph, scrapID);
+        }
+
         #region ScrapID
         [PXDefault("<NEW>")]
         [PXDBString(15, IsKey = true, IsUnicode = true, InputMask = ">CCCCCCCCCCCCCCC")]
@@ -83,6 +89,14 @@ namespace LUMCustomization.DAC
         [PXUIField(DisplayName = "Reason")]
         public virtual string Reason { get; set; }
         public abstract class reason : PX.Data.BQL.BqlString.Field<reason> { }
+        #endregion
+
+        #region Confirmed
+        [PXDBBool()]
+        [PXDefault(true)]
+        [PXUIField(DisplayName = "Confirmed")]
+        public virtual bool? Confirmed { get; set; }
+        public abstract class confirmed : PX.Data.BQL.BqlBool.Field<confirmed> { }
         #endregion
 
         #region Noteid

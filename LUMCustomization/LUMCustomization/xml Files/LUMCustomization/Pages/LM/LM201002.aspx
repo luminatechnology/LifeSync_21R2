@@ -28,6 +28,7 @@
             <px:PXDropDown ID="edDepartment" runat="server" DataField="Department"></px:PXDropDown>
             <px:PXDropDown ID="edProdLine" runat="server" DataField="ProdLine"></px:PXDropDown>
             <px:PXDropDown ID="edReason" runat="server" DataField="Reason"></px:PXDropDown>
+            <px:PXCheckBox ID="edConfirmed" runat="server" DataField="Confirmed"></px:PXCheckBox>
         </Template>
     </px:PXFormView>
 </asp:Content>
@@ -43,7 +44,6 @@
                 <Columns>
                     <px:PXGridColumn DataField="ScrapID" DisplayFormat="CCCCCCCCCCCCCCCCCCCC" AutoCallBack="True" AllowDragDrop="true" Width="150px" />
                     <px:PXGridColumn DataField="LineNbr" Width="100px" />
-                    <px:PXGridColumn DataField="Confirmed" Type="CheckBox" Width="130px"></px:PXGridColumn>
                     <px:PXGridColumn DataField="InventoryID" Width="150px" CommitChanges="True"></px:PXGridColumn>
                     <px:PXGridColumn DataField="InventoryDescr" Width="200px"></px:PXGridColumn>
                     <px:PXGridColumn DataField="UOM" Width="100px"></px:PXGridColumn>
@@ -51,6 +51,7 @@
                 </Columns>
             </px:PXGridLevel>
         </Levels>
+        <Mode InitNewRow="True" />
     </px:PXGrid>
 </asp:Content>
 

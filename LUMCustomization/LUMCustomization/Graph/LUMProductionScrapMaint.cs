@@ -62,27 +62,15 @@ namespace LUMCustomization.Graph
         public virtual void _(Events.RowPersisting<LUMProductionScrapDetails> e)
         {
             var row = e.Row;
-            if (row != null && row.ScrapID != this.Document.Current?.ScrapID)
+            if (row != null && this.Document.Current != null && row.ScrapID != this.Document.Current?.ScrapID)
                 row.ScrapID = this.Document.Current?.ScrapID;
         }
 
         public virtual void _(Events.RowDeleting<LUMProductionScrap> e)
         {
             var row = e.Row;
-            var details = this.Transactions.Select().RowCast<LUMProductionScrapDetails>();
-            if (row != null && details.Any(x => (x.Confirmed ?? false)))
-                throw new PXException("Can not delete Confirmed data");
-        }
-
-        public virtual void _(Events.RowDeleting<LUMProductionScrapDetails> e)
-        {
-            var row = e.Row;
-            if (row != null && (row.Confirmed ?? false))
-            {
-                e.Cache.RaiseExceptionHandling<LUMProductionScrapDetails.confirmed>(e.Row, row.Confirmed,
-                    new PXSetPropertyException<LUMProductionScrapDetails.confirmed>("Can not delete Confirmed record", PXErrorLevel.Error));
+            if (row != null && (row?.Confirmed ?? false))
                 throw new PXException("Can not delete Confirmed record");
-            }
         }
 
         public virtual void _(Events.RowSelected<LUMProductionScrapDetails> e)
