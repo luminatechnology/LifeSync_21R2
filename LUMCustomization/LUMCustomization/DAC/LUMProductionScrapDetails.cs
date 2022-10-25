@@ -67,6 +67,19 @@ namespace LUMCustomization.DAC
         public abstract class qty : PX.Data.BQL.BqlDecimal.Field<qty> { }
         #endregion
 
+        #region SiteID
+        [PXDBInt]
+        [PXSelector(typeof(Search<INSite.siteID>),
+                    typeof(INSite.siteCD),
+                    typeof(INSite.descr),
+                    SubstituteKey = typeof(INSite.siteCD),
+                    DescriptionField = typeof(INSite.descr))]
+        [PXUIField(DisplayName = "Warehouse")]
+        public virtual Int32? SiteID { get; set; }
+        public abstract class siteID : PX.Data.BQL.BqlInt.Field<siteID> { }
+        #endregion
+
+
         #region Noteid
         [PXNote()]
         public virtual Guid? Noteid { get; set; }

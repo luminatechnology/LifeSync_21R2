@@ -14,6 +14,7 @@
   <col name="LastModifiedByScreenID" type="Char(8)" />
   <col name="LastModifiedDateTime" type="DateTime" />
   <col name="tstamp" type="Timestamp" />
+  <col name="SiteID" type="Int" nullable="true" />
   <index name="LUMProductionScrapDetails_NoteID" unique="true">
     <col name="NoteID" />
     <col name="CompanyID" />

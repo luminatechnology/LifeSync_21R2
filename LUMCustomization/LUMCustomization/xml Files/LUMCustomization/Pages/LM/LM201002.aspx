@@ -40,6 +40,7 @@
                 <Mode InitNewRow="true" />
                 <RowTemplate>
                     <px:PXSelector ID="edInventoryID" runat="server" DataField="InventoryID" CommitChanges="true"></px:PXSelector>
+                    <px:PXSelector ID="edSiteID" runat="server" DataField="SiteID"></px:PXSelector>
                 </RowTemplate>
                 <Columns>
                     <px:PXGridColumn DataField="ScrapID" DisplayFormat="CCCCCCCCCCCCCCCCCCCC" AutoCallBack="True" AllowDragDrop="true" Width="150px" />
@@ -48,6 +49,7 @@
                     <px:PXGridColumn DataField="InventoryDescr" Width="200px"></px:PXGridColumn>
                     <px:PXGridColumn DataField="UOM" Width="100px"></px:PXGridColumn>
                     <px:PXGridColumn DataField="Qty" Width="130px"></px:PXGridColumn>
+                    <px:PXGridColumn DataField="SiteID" Width="130px"></px:PXGridColumn>
                 </Columns>
             </px:PXGridLevel>
         </Levels>
