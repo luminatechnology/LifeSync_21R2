@@ -1,9 +1,10 @@
-﻿using LUMCustomizations.DAC;
+﻿using LUMCustomization.DAC;
 using PX.Data;
 using PX.Data.BQL;
 using PX.Data.BQL.Fluent;
 using PX.Objects.CS;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,13 +12,42 @@ using System.Threading.Tasks;
 
 namespace LUMCustomization.Graph
 {
-    public class LUMProductionScrapMaint : PXGraph<LUMProductionScrapMaint>
+    public class LUMProductionScrapMaint : PXGraph<LUMProductionScrapMaint, LUMProductionScrap>
     {
-        public PXSave<LUMProductionScrap> Save;
-        public PXCancel<LUMProductionScrap> Cancel;
-        public SelectFrom<LUMProductionScrap>.OrderBy<Asc<LUMProductionScrap.scrapID>>.View ScrapTransactions;
+        public SelectFrom<LUMProductionScrap>.OrderBy<Asc<LUMProductionScrap.scrapID>>.View Document;
+        public SelectFrom<LUMProductionScrapDetails>
+              .Where<LUMProductionScrapDetails.scrapID.IsEqual<LUMProductionScrap.scrapID.FromCurrent>>
+              .View Transactions;
 
-        #region Method
+        public LUMProductionScrapMaint()
+            => Report.AddMenuAction(printProductionScrapReport);
+
+        #region Action
+
+        public PXAction<LUMProductionScrap> Report;
+        [PXUIField(DisplayName = "Reports", MapEnableRights = PXCacheRights.Select)]
+        [PXButton(MenuAutoOpen = true)]
+        protected void report() { }
+
+        public PXAction<LUMProductionScrap> printProductionScrapReport;
+        [PXButton]
+        [PXUIField(DisplayName = "Print Production Scrap Report", MapEnableRights = PXCacheRights.Select)]
+        public IEnumerable PrintProductionScrapReport(PXAdapter adapter)
+        {
+            this.Save.Press();
+            var _reportID = "LM612001";
+            //ActiveStandardReport(_reportID);
+            Dictionary<string, string> parameters = new Dictionary<string, string>
+            {
+                ["ParmScrapID"] = this.Document.Current?.ScrapID
+            };
+            if (parameters["ParmScrapID"] != null)
+                throw new PXReportRequiredException(parameters, _reportID, PXBaseRedirectException.WindowMode.New, string.Format("Report {0}", _reportID));
+            return adapter.Get();
+        }
+        #endregion
+
+        #region Events
 
         public virtual void _(Events.RowPersisting<LUMProductionScrap> e)
         {
@@ -29,54 +59,69 @@ namespace LUMCustomization.Graph
             }
         }
 
+        public virtual void _(Events.RowPersisting<LUMProductionScrapDetails> e)
+        {
+            var row = e.Row;
+            if (row != null && row.ScrapID != this.Document.Current?.ScrapID)
+                row.ScrapID = this.Document.Current?.ScrapID;
+        }
+
         public virtual void _(Events.RowDeleting<LUMProductionScrap> e)
         {
             var row = e.Row;
+            var details = this.Transactions.Select().RowCast<LUMProductionScrapDetails>();
+            if (row != null && details.Any(x => (x.Confirmed ?? false)))
+                throw new PXException("Can not delete Confirmed data");
+        }
+
+        public virtual void _(Events.RowDeleting<LUMProductionScrapDetails> e)
+        {
+            var row = e.Row;
             if (row != null && (row.Confirmed ?? false))
-            { 
-                e.Cache.RaiseExceptionHandling<LUMProductionScrap.confirmed>(e.Row, row.Confirmed,
-                    new PXSetPropertyException<LUMProductionScrap.confirmed>("Can not delete Confirmed record", PXErrorLevel.Error));
+            {
+                e.Cache.RaiseExceptionHandling<LUMProductionScrapDetails.confirmed>(e.Row, row.Confirmed,
+                    new PXSetPropertyException<LUMProductionScrapDetails.confirmed>("Can not delete Confirmed record", PXErrorLevel.Error));
                 throw new PXException("Can not delete Confirmed record");
             }
         }
 
-        public virtual void _(Events.RowSelected<LUMProductionScrap>e )
+        public virtual void _(Events.RowSelected<LUMProductionScrapDetails> e)
         {
-            var row = e.Row as LUMProductionScrap;
+            var row = e.Row as LUMProductionScrapDetails;
             if (row != null && row.InventoryID.HasValue)
             {
                 if (string.IsNullOrEmpty(row.InventoryDescr))
                 {
                     object newInventoryDescr;
-                    e.Cache.RaiseFieldDefaulting<LUMProductionScrap.inventoryDescr>(row, out newInventoryDescr);
+                    e.Cache.RaiseFieldDefaulting<LUMProductionScrapDetails.inventoryDescr>(row, out newInventoryDescr);
                     row.InventoryDescr = (string)newInventoryDescr;
                 }
 
                 if (string.IsNullOrEmpty(row.UOM))
                 {
                     object newUOM;
-                    e.Cache.RaiseFieldDefaulting<LUMProductionScrap.uOM>(row, out newUOM);
+                    e.Cache.RaiseFieldDefaulting<LUMProductionScrapDetails.uOM>(row, out newUOM);
                     row.UOM = (string)newUOM;
                 }
             }
         }
 
-        public virtual void _(Events.FieldUpdated<LUMProductionScrap.inventoryID> e)
+        public virtual void _(Events.FieldUpdated<LUMProductionScrapDetails.inventoryID> e)
         {
-            var row = e.Row as LUMProductionScrap;
+            var row = e.Row as LUMProductionScrapDetails;
             if (row != null && row.InventoryID.HasValue)
             {
                 if (string.IsNullOrEmpty(row.InventoryDescr))
                 {
                     object newInventoryDescr;
-                    e.Cache.RaiseFieldDefaulting<LUMProductionScrap.inventoryDescr>(row, out newInventoryDescr);
+                    e.Cache.RaiseFieldDefaulting<LUMProductionScrapDetails.inventoryDescr>(row, out newInventoryDescr);
                     row.InventoryDescr = (string)newInventoryDescr;
                 }
 
                 if (string.IsNullOrEmpty(row.UOM))
                 {
                     object newUOM;
-                    e.Cache.RaiseFieldDefaulting<LUMProductionScrap.uOM>(row, out newUOM);
+                    e.Cache.RaiseFieldDefaulting<LUMProductionScrapDetails.uOM>(row, out newUOM);
                     row.UOM = (string)newUOM;
                 }
             }
@@ -118,6 +163,13 @@ namespace LUMCustomization.Graph
                                       .Where<CSAttributeDetail.attributeID.IsEqual<P.AsString>>
                                       .View.Select(this, "PRODLINE").RowCast<CSAttributeDetail>();
             PXStringListAttribute.SetList<LUMProductionScrap.prodLine>(e.Cache, null, attributeProdLineDDL.Select(x => x.ValueID).ToArray(), attributeProdLineDDL.Select(x => x.Description).ToArray());
+        }
+
+        public virtual void _(Events.FieldDefaulting<LUMProductionScrapDetails.lineNbr> e)
+        {
+            var currentList = this.Transactions.Select().RowCast<LUMProductionScrapDetails>();
+            var maxLineNbr = currentList.Count() == 0 ? 0 : currentList.Max(x => x?.LineNbr ?? 0);
+            e.NewValue = maxLineNbr + 1;
         }
 
         public virtual void _(Events.FieldDefaulting<LUMProductionScrap.reason> e)

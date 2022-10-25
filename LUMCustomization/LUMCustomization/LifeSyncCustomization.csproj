@@ -101,6 +101,7 @@
     <Compile Include="DAC\LumINItemCostHist.cs" />
     <Compile Include="DAC\LumItemsCOC.cs" />
     <Compile Include="DAC\LUMProductionScrap.cs" />
+    <Compile Include="DAC\LUMProductionScrapDetails.cs" />
     <Compile Include="DAC\LumShipmentPlan.cs" />
     <Compile Include="DAC\LUMStdBomCost.cs" />
     <Compile Include="DAC\PrintParameters.cs" />

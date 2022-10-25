@@ -6,7 +6,7 @@ using PX.Objects.AM.Attributes;
 using PX.Objects.CS;
 using PX.Objects.IN;
 
-namespace LUMCustomizations.DAC
+namespace LUMCustomization.DAC
 {
     [Serializable]
     [PXCacheName("LUMProductionScrap")]
@@ -15,17 +15,13 @@ namespace LUMCustomizations.DAC
         #region ScrapID
         [PXDefault("<NEW>")]
         [PXDBString(15, IsKey = true, IsUnicode = true, InputMask = ">CCCCCCCCCCCCCCC")]
-        [PXUIField(DisplayName = "Scrap ID", Required = true, Enabled = false)]
+        //[AutoNumber(typeof("SCRAPID"), typeof(AccessInfo.businessDate))]
+        [PXUIField(DisplayName = "Scrap ID", Required = true)]
+        [PXSelector(typeof(Search<LUMProductionScrap.scrapID>),
+                    typeof(LUMProductionScrap.trandate),
+                    typeof(LUMProductionScrap.transDescription))]
         public virtual string ScrapID { get; set; }
         public abstract class scrapID : PX.Data.BQL.BqlString.Field<scrapID> { }
-        #endregion
-
-        #region Confirmed
-        [PXDBBool()]
-        [PXDefault(false)]
-        [PXUIField(DisplayName = "Confirmed")]
-        public virtual bool? Confirmed { get; set; }
-        public abstract class confirmed : PX.Data.BQL.BqlBool.Field<confirmed> { }
         #endregion
 
         #region Trandate
@@ -36,9 +32,16 @@ namespace LUMCustomizations.DAC
         public abstract class trandate : PX.Data.BQL.BqlDateTime.Field<trandate> { }
         #endregion
 
+        #region TransDescription
+        [PXDBString(1024)]
+        [PXUIField(DisplayName = "Description")]
+        public virtual string TransDescription { get; set; }
+        public abstract class transDescription : PX.Data.BQL.BqlString.Field<transDescription> { }
+        #endregion
+
         #region ProdOrderType
         [PXDBString(2, IsUnicode = true, InputMask = "")]
-        [PXUIField(DisplayName = "Prod Order Type", Required = true, Enabled = false)]
+        [PXUIField(DisplayName = "Production OrderType", Required = true, Enabled = false)]
         [PXDefault(typeof(SelectFrom<AMProdItem>
                          .Where<AMProdItem.prodOrdID.IsEqual<LUMProductionScrap.prodOrderID.FromCurrent>>
                          .SearchFor<AMProdItem.orderType>))]
@@ -80,44 +83,6 @@ namespace LUMCustomizations.DAC
         [PXUIField(DisplayName = "Reason")]
         public virtual string Reason { get; set; }
         public abstract class reason : PX.Data.BQL.BqlString.Field<reason> { }
-        #endregion
-
-        #region InventoryID
-        [StockItem(Visibility = PXUIVisibility.SelectorVisible)]
-        [PXDefault]
-        [PXUIField(DisplayName = "Inventory ID")]
-        public virtual int? InventoryID { get; set; }
-        public abstract class inventoryID : PX.Data.BQL.BqlInt.Field<inventoryID> { }
-        #endregion
-
-        #region InventoryDescr
-        [PXString]
-        [PXDefault(typeof(Search<InventoryItem.descr, Where<InventoryItem.inventoryID, Equal<Current<LUMProductionScrap.inventoryID>>>>))]
-        [PXUIField(DisplayName = "Inventory Description", Enabled = false)]
-        public virtual string InventoryDescr { get; set; }
-        public abstract class inventoryDescr : PX.Data.BQL.BqlString.Field<inventoryDescr> { }
-        #endregion
-
-        #region UOM
-        [PXString]
-        [PXDefault(typeof(Search<InventoryItem.baseUnit, Where<InventoryItem.inventoryID, Equal<Current<LUMProductionScrap.inventoryID>>>>))]
-        [PXUIField(DisplayName = "UOM", Enabled = false)]
-        public virtual string UOM { get; set; }
-        public abstract class uOM : PX.Data.BQL.BqlString.Field<uOM> { }
-        #endregion
-
-        #region Qty
-        [PXDBDecimal(3)]
-        [PXUIField(DisplayName = "Qty")]
-        public virtual Decimal? Qty { get; set; }
-        public abstract class qty : PX.Data.BQL.BqlDecimal.Field<qty> { }
-        #endregion
-
-        #region TransDescription
-        [PXDBString(1024)]
-        [PXUIField(DisplayName = "TranDescr")]
-        public virtual string TransDescription { get; set; }
-        public abstract class transDescription : PX.Data.BQL.BqlString.Field<transDescription> { }
         #endregion
 
         #region Noteid
