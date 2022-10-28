@@ -50,6 +50,7 @@
                     <px:PXGridColumn DataField="UOM" Width="100px"></px:PXGridColumn>
                     <px:PXGridColumn DataField="Qty" Width="130px"></px:PXGridColumn>
                     <px:PXGridColumn DataField="SiteID" Width="130px"></px:PXGridColumn>
+                    <px:PXGridColumn DataField="SerialNbr" Width="170px"></px:PXGridColumn>
                 </Columns>
             </px:PXGridLevel>
         </Levels>

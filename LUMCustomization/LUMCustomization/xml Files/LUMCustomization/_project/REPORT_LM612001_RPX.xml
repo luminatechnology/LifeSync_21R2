@@ -105,7 +105,7 @@
                 <ParentName>LUMProductionScrapDetails</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>http://localhost/LifeSync_2021R2</SchemaUrl>
+        <SchemaUrl>http://localhost/LifeSync_2021R2/</SchemaUrl>
         <Tables>
             <ReportTable Name="LUMProductionScrap">
                 <Fields>
@@ -2037,6 +2037,7 @@
                 <FullName>PX.Objects.IN.INSite</FullName>
             </ReportTable>
         </Tables>
+        <Version>20201103</Version>
         <Width>18.9891cm</Width>
         <Sections>
             <PageHeader Name="pageHeaderSection1">
@@ -2101,7 +2102,7 @@
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>报废单</Value>
+                        <Value>=[AttrReason.Description]</Value>
                     </TextBox>
                     <TextBox Name="textBox2">
                         <Location>544px, 72px</Location>

@@ -79,6 +79,13 @@ namespace LUMCustomization.DAC
         public abstract class siteID : PX.Data.BQL.BqlInt.Field<siteID> { }
         #endregion
 
+        #region SerialNbr
+        [PXDBString(100)]
+        [PXUIField(DisplayName = "Lot/Serial Nbr")]
+        public virtual string SerialNbr { get; set; }
+        public abstract class serialNbr : PX.Data.BQL.BqlString.Field<serialNbr> { }
+        #endregion
+
 
         #region Noteid
         [PXNote()]
