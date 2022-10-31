@@ -2245,7 +2245,7 @@
                             <TextAlign>Left</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>=[AttrReason.Description]</Value>
+                        <Value>=[LUMProductionScrap.TransDescription]</Value>
                     </TextBox>
                     <TextBox Name="textBox30">
                         <Location>32px, 0px</Location>

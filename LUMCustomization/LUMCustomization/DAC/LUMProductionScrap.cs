@@ -39,7 +39,7 @@ namespace LUMCustomization.DAC
         #endregion
 
         #region TransDescription
-        [PXDBString(1024)]
+        [PXDBString(1024, IsUnicode = true)]
         [PXUIField(DisplayName = "Description")]
         public virtual string TransDescription { get; set; }
         public abstract class transDescription : PX.Data.BQL.BqlString.Field<transDescription> { }
