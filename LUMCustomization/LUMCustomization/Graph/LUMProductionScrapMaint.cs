@@ -20,7 +20,10 @@ namespace LUMCustomization.Graph
               .View Transactions;
 
         public LUMProductionScrapMaint()
-            => Report.AddMenuAction(printProductionScrapReport);
+        {
+            Report.AddMenuAction(release);
+            Report.AddMenuAction(printProductionScrapReport);
+        }
 
         #region Action
 
@@ -28,6 +31,19 @@ namespace LUMCustomization.Graph
         [PXUIField(DisplayName = "Reports", MapEnableRights = PXCacheRights.Select)]
         [PXButton(MenuAutoOpen = true)]
         protected void report() { }
+
+        public PXAction<LUMProductionScrap> release;
+        [PXButton]
+        [PXUIField(DisplayName = "Release", MapEnableRights = PXCacheRights.Select)]
+        public IEnumerable Release(PXAdapter adapter)
+        {
+            if (this.Document.Current != null)
+            {
+                this.Document.Current.Confirmed = true;
+                this.Save.Press();
+            }
+            return adapter.Get();
+        }
 
         public PXAction<LUMProductionScrap> printProductionScrapReport;
         [PXButton]
@@ -72,6 +88,9 @@ namespace LUMCustomization.Graph
             if (row != null && (row?.Confirmed ?? false))
                 throw new PXException("Can not delete Confirmed record");
         }
+
+        public virtual void _(Events.RowSelected<LUMProductionScrap> e)
+            => this.release.SetEnabled(e.Row != null && e.Row.ScrapID != "<NEW>" && !(e.Row.Confirmed ?? false));
 
         public virtual void _(Events.RowSelected<LUMProductionScrapDetails> e)
         {

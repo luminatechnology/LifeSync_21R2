@@ -6479,7 +6479,7 @@
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Top</VerticalAlign>
                         </Style>
-                        <Value>=[SOLine.TranDesc]</Value>
+                        <Value>=REPLACE([SOLine.TranDesc],'，','，'+'{br}')</Value>
                     </TextBox>
                     <TextBox Name="textBox42">
                         <Format>='N2'</Format>
@@ -6524,6 +6524,7 @@
                         <Value>=[SOLine.InventoryID]</Value>
                     </TextBox>
                     <TextBox Name="textBox44">
+                        <CanGrow>True</CanGrow>
                         <Location>168px, 24px</Location>
                         <Size>104px, 56px</Size>
                         <Style>
@@ -6540,7 +6541,7 @@
                             <TextAlign>Center</TextAlign>
                             <VerticalAlign>Top</VerticalAlign>
                         </Style>
-                        <Value>=[SOLine.InventoryID_description]</Value>
+                        <Value>=REPLACE([SOLine.InventoryID_description],'，','，'+'{br}')</Value>
                     </TextBox>
                     <TextBox Name="textBox45">
                         <Location>272px, 0px</Location>

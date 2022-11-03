@@ -93,8 +93,8 @@ namespace LUMCustomization.DAC
 
         #region Confirmed
         [PXDBBool()]
-        [PXDefault(true)]
-        [PXUIField(DisplayName = "Confirmed")]
+        [PXDefault(false)]
+        [PXUIField(DisplayName = "Confirmed", Enabled = false)]
         public virtual bool? Confirmed { get; set; }
         public abstract class confirmed : PX.Data.BQL.BqlBool.Field<confirmed> { }
         #endregion
