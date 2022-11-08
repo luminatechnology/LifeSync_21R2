@@ -150,6 +150,7 @@
     <Compile Include="Graph_Extensions\INReceiptEntry_Extension.cs" />
     <Compile Include="Graph_Extensions\INTransferEntry_Extension.cs" />
     <Compile Include="Graph_Extensions\INUpdateStdCost_Extension.cs" />
+    <Compile Include="Graph_Extensions\InventoryItemMaint_Extension.cs" />
     <Compile Include="Graph_Extensions\JournalEntry_Extension.cs" />
     <Compile Include="Graph_Extensions\MaterialEntry.cs" />
     <Compile Include="Graph_Extensions\MatlWizard1_Extension.cs" />
