@@ -297,10 +297,10 @@
                         </Template>
                     </px:PXFormView>
 
-                    <px:PXLayoutRule runat="server" StartColumn="True" ControlSize="XM" StartGroup="True" GroupCaption="COST BREAKDOWN" />
+                    <px:PXLayoutRule runat="server" StartColumn="True" ControlSize="SM" StartGroup="True" GroupCaption="COST BREAKDOWN" />
                     <px:PXFormView ID="PXBreakDownForm" runat="server" SkinID="Inside" RenderStyle="simple" DataSourceID="ds" DataMember="BomCostHistory" CaptionVisible="false">
                         <Template>
-                            <px:PXLayoutRule runat="server" LabelsWidth="SM" ControlSize="XM" />
+                            <px:PXLayoutRule runat="server" LabelsWidth="SM" ControlSize="SM" />
                             <px:PXDateTimeEdit ID="edStartDate" runat="server" DataField="StartDate" Enabled="False" />
                             <px:PXTextEdit ID="edLotSize" runat="server" DataField="LotSize" Enabled="False" TextAlign="Right"></px:PXTextEdit>
                             <px:PXTextEdit ID="edMatlCost" runat="server" DataField="MatlCost" Enabled="false" TextAlign="Right"></px:PXTextEdit>
