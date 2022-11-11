@@ -302,14 +302,14 @@
                         <Template>
                             <px:PXLayoutRule runat="server" LabelsWidth="SM" ControlSize="XM" />
                             <px:PXDateTimeEdit ID="edStartDate" runat="server" DataField="StartDate" Enabled="False" />
-                            <px:PXTextEdit ID="edLotSize" runat="server" DataField="LotSize" Enabled="False"></px:PXTextEdit>
-                            <px:PXTextEdit ID="edMatlCost" runat="server" DataField="MatlCost" Enabled="false"></px:PXTextEdit>
-                            <px:PXTextEdit ID="edSubcontractMaterialCost" runat="server" DataField="SubcontractMaterialCost" Enabled="false"></px:PXTextEdit>
-                            <px:PXTextEdit ID="edToolCost" runat="server" DataField="ToolCost" Enabled="false"></px:PXTextEdit>
-                            <px:PXTextEdit ID="edVLaborCost" runat="server" DataField="VLaborCost" Enabled="false"></px:PXTextEdit>
-                            <px:PXTextEdit ID="edVOvdCost" runat="server" DataField="VOvdCost" Enabled="false"></px:PXTextEdit>
-                            <px:PXTextEdit ID="edTotalCost" runat="server" DataField="TotalCost" Enabled="false"></px:PXTextEdit>
-                            <px:PXTextEdit ID="edUnitCost" runat="server" DataField="UnitCost" Enabled="false"></px:PXTextEdit>
+                            <px:PXTextEdit ID="edLotSize" runat="server" DataField="LotSize" Enabled="False" TextAlign="Right"></px:PXTextEdit>
+                            <px:PXTextEdit ID="edMatlCost" runat="server" DataField="MatlCost" Enabled="false" TextAlign="Right"></px:PXTextEdit>
+                            <px:PXTextEdit ID="edSubcontractMaterialCost" runat="server" DataField="SubcontractMaterialCost" Enabled="false" TextAlign="Right"></px:PXTextEdit>
+                            <px:PXTextEdit ID="edToolCost" runat="server" DataField="ToolCost" Enabled="false" TextAlign="Right"></px:PXTextEdit>
+                            <px:PXTextEdit ID="edVLaborCost" runat="server" DataField="VLaborCost" Enabled="false" TextAlign="Right"></px:PXTextEdit>
+                            <px:PXTextEdit ID="edVOvdCost" runat="server" DataField="VOvdCost" Enabled="false" TextAlign="Right"></px:PXTextEdit>
+                            <px:PXTextEdit ID="edTotalCost" runat="server" DataField="TotalCost" Enabled="false" TextAlign="Right"></px:PXTextEdit>
+                            <px:PXTextEdit ID="edUnitCost" runat="server" DataField="UnitCost" Enabled="false" TextAlign="Right"></px:PXTextEdit>
                         </Template>
                     </px:PXFormView>
 
