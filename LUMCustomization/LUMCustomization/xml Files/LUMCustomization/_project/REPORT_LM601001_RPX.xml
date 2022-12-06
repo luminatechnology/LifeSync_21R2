@@ -203,7 +203,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 <ParentName>AMProdItem</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>https://abamedical.acumatica.com/</SchemaUrl>
+        <SchemaUrl>http://localhost/LifeSync_2021R2/</SchemaUrl>
         <Sorting>
             <SortExp>
                 <DataField>outter.StartLabelNbr</DataField>
@@ -2227,7 +2227,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox11">
                         <Localizable>False</Localizable>
                         <Location>0px, 140px</Location>
-                        <Size>384px, 20px</Size>
+                        <Size>280px, 20px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -2240,7 +2240,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox13">
                         <Localizable>False</Localizable>
                         <Location>0px, 160px</Location>
-                        <Size>384px, 20px</Size>
+                        <Size>280px, 20px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -2255,7 +2255,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Format>='N0'</Format>
                         <Localizable>False</Localizable>
                         <Location>144px, 180px</Location>
-                        <Size>96px, 20px</Size>
+                        <Size>88px, 20px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -2268,7 +2268,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     </TextBox>
                     <TextBox Name="textBox16">
                         <Localizable>False</Localizable>
-                        <Location>248px, 180px</Location>
+                        <Location>240px, 180px</Location>
                         <Size>48px, 20px</Size>
                         <Style>
                             <Font>
@@ -2297,7 +2297,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Format>='N0'</Format>
                         <Localizable>False</Localizable>
                         <Location>144px, 200px</Location>
-                        <Size>96px, 20px</Size>
+                        <Size>88px, 20px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -2350,6 +2350,30 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         </Style>
                         <Value>='Number of container in shipment : '+#010;IIF([@StartLabel] = null,[outter.StartLabelNbr],[@StartLabel])+#010;' of '+#010;IIF([@EndLabel] = null, [outter.EndLabelNbr],[@EndLabel])</Value>
                     </TextBox>
+                    <TextBox Name="textBox247">
+                        <Localizable>False</Localizable>
+                        <Location>288px, 152px</Location>
+                        <Size>72px, 48px</Size>
+                        <Style>
+                            <BackImage>
+                                <Image>rohs_icon_blank3</Image>
+                                <MimeType>image/png</MimeType>
+                                <Source>Embedded</Source>
+                            </BackImage>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>14px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                            <Padding>
+                                <Left>23px</Left>
+                                <Top>12px</Top>
+                            </Padding>
+                            <TextAlign>Left</TextAlign>
+                            <VerticalAlign>Top</VerticalAlign>
+                        </Style>
+                        <Value>='RoHS'</Value>
+                    </TextBox>
                     <TextBox Name="textBox25">
                         <Localizable>False</Localizable>
                         <Location>0px, 240px</Location>
@@ -2366,7 +2390,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     </TextBox>
                     <TextBox Name="textBox26">
                         <Localizable>False</Localizable>
-                        <Location>248px, 200px</Location>
+                        <Location>240px, 200px</Location>
                         <Size>48px, 20px</Size>
                         <Style>
                             <Font>
@@ -2565,7 +2589,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox23">
                         <Localizable>False</Localizable>
                         <Location>0px, 140px</Location>
-                        <Size>384px, 20px</Size>
+                        <Size>280px, 20px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -2575,10 +2599,34 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         </Style>
                         <Value>='ABA Part NO. : '+IIF(@PartNo = null ,IIF([InventoryItem.InventoryCD] = null,'',[InventoryItem.InventoryCD]),@PartNo)</Value>
                     </TextBox>
+                    <TextBox Name="textBox248">
+                        <Localizable>False</Localizable>
+                        <Location>288px, 152px</Location>
+                        <Size>72px, 48px</Size>
+                        <Style>
+                            <BackImage>
+                                <Image>rohs_icon_blank3</Image>
+                                <MimeType>image/png</MimeType>
+                                <Source>Embedded</Source>
+                            </BackImage>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>14px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                            <Padding>
+                                <Left>23px</Left>
+                                <Top>12px</Top>
+                            </Padding>
+                            <TextAlign>Left</TextAlign>
+                            <VerticalAlign>Top</VerticalAlign>
+                        </Style>
+                        <Value>='RoHS'</Value>
+                    </TextBox>
                     <TextBox Name="textBox28">
                         <Localizable>False</Localizable>
                         <Location>0px, 160px</Location>
-                        <Size>384px, 20px</Size>
+                        <Size>280px, 20px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -2606,7 +2654,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Format>='N0'</Format>
                         <Localizable>False</Localizable>
                         <Location>144px, 200px</Location>
-                        <Size>96px, 20px</Size>
+                        <Size>88px, 20px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -2619,7 +2667,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     </TextBox>
                     <TextBox Name="textBox31">
                         <Localizable>False</Localizable>
-                        <Location>248px, 180px</Location>
+                        <Location>240px, 180px</Location>
                         <Size>48px, 20px</Size>
                         <Style>
                             <Font>
@@ -2648,7 +2696,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Format>='N0'</Format>
                         <Localizable>False</Localizable>
                         <Location>144px, 180px</Location>
-                        <Size>96px, 20px</Size>
+                        <Size>88px, 20px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -2661,7 +2709,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     </TextBox>
                     <TextBox Name="textBox34">
                         <Localizable>False</Localizable>
-                        <Location>248px, 200px</Location>
+                        <Location>240px, 200px</Location>
                         <Size>48px, 20px</Size>
                         <Style>
                             <Font>
@@ -2750,9 +2798,33 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 <Height>6.77249cm</Height>
                 <VisibleExpr>=IIF(([outter.Customer] = 'OSI' Or @Customer = 'OSI')#010;And ([InventoryItem.RESISTOR_Attributes] &lt;&gt; null Or @Resistor &lt;&gt; null) ,true,false)</VisibleExpr>
                 <Items>
+                    <TextBox Name="textBox249">
+                        <Localizable>False</Localizable>
+                        <Location>288px, 152px</Location>
+                        <Size>72px, 48px</Size>
+                        <Style>
+                            <BackImage>
+                                <Image>rohs_icon_blank3</Image>
+                                <MimeType>image/png</MimeType>
+                                <Source>Embedded</Source>
+                            </BackImage>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>14px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                            <Padding>
+                                <Left>23px</Left>
+                                <Top>12px</Top>
+                            </Padding>
+                            <TextAlign>Left</TextAlign>
+                            <VerticalAlign>Top</VerticalAlign>
+                        </Style>
+                        <Value>='RoHS'</Value>
+                    </TextBox>
                     <TextBox Name="textBox38">
                         <Localizable>False</Localizable>
-                        <Location>248px, 206px</Location>
+                        <Location>240px, 206px</Location>
                         <Size>48px, 18px</Size>
                         <Style>
                             <Font>
@@ -2836,7 +2908,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Format>='N0'</Format>
                         <Localizable>False</Localizable>
                         <Location>144px, 206px</Location>
-                        <Size>96px, 18px</Size>
+                        <Size>88px, 18px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -2917,7 +2989,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     </TextBox>
                     <TextBox Name="textBox50">
                         <Localizable>False</Localizable>
-                        <Location>248px, 188px</Location>
+                        <Location>240px, 188px</Location>
                         <Size>48px, 18px</Size>
                         <Style>
                             <Font>
@@ -2933,7 +3005,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Format>='N0'</Format>
                         <Localizable>False</Localizable>
                         <Location>144px, 188px</Location>
-                        <Size>96px, 18px</Size>
+                        <Size>88px, 18px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -2960,7 +3032,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox53">
                         <Localizable>False</Localizable>
                         <Location>0px, 170px</Location>
-                        <Size>376px, 18px</Size>
+                        <Size>280px, 18px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -3011,7 +3083,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox56">
                         <Localizable>False</Localizable>
                         <Location>0px, 152px</Location>
-                        <Size>376px, 18px</Size>
+                        <Size>280px, 18px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -3029,6 +3101,30 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([outter.Customer] = 'AMC' Or @Customer = 'AMC')#010;And ([InventoryItem.RESISTOR_Attributes] &lt;&gt; null Or @Resistor &lt;&gt; null) ,true,false)</VisibleExpr>
                 <Items>
+                    <TextBox Name="textBox250">
+                        <Localizable>False</Localizable>
+                        <Location>288px, 152px</Location>
+                        <Size>72px, 48px</Size>
+                        <Style>
+                            <BackImage>
+                                <Image>rohs_icon_blank3</Image>
+                                <MimeType>image/png</MimeType>
+                                <Source>Embedded</Source>
+                            </BackImage>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>14px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                            <Padding>
+                                <Left>23px</Left>
+                                <Top>12px</Top>
+                            </Padding>
+                            <TextAlign>Left</TextAlign>
+                            <VerticalAlign>Top</VerticalAlign>
+                        </Style>
+                        <Value>='RoHS'</Value>
+                    </TextBox>
                     <TextBox Name="textBox57">
                         <Localizable>False</Localizable>
                         <Location>0px, 0px</Location>
@@ -3085,7 +3181,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox61">
                         <Localizable>False</Localizable>
                         <Location>0px, 152px</Location>
-                        <Size>376px, 18px</Size>
+                        <Size>280px, 18px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -3111,7 +3207,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox63">
                         <Localizable>False</Localizable>
                         <Location>0px, 170px</Location>
-                        <Size>376px, 18px</Size>
+                        <Size>280px, 18px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -3126,7 +3222,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Format>='N0'</Format>
                         <Localizable>False</Localizable>
                         <Location>144px, 188px</Location>
-                        <Size>96px, 18px</Size>
+                        <Size>88px, 18px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -3139,7 +3235,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     </TextBox>
                     <TextBox Name="textBox65">
                         <Localizable>False</Localizable>
-                        <Location>248px, 188px</Location>
+                        <Location>240px, 188px</Location>
                         <Size>48px, 18px</Size>
                         <Style>
                             <Font>
@@ -3210,7 +3306,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Format>='N0'</Format>
                         <Localizable>False</Localizable>
                         <Location>144px, 206px</Location>
-                        <Size>96px, 18px</Size>
+                        <Size>88px, 18px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -3238,7 +3334,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     </TextBox>
                     <TextBox Name="textBox72">
                         <Localizable>False</Localizable>
-                        <Location>248px, 206px</Location>
+                        <Location>240px, 206px</Location>
                         <Size>48px, 18px</Size>
                         <Style>
                             <Font>
@@ -3308,6 +3404,30 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([outter.Customer] = 'AMC' Or @Customer = 'AMC')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
                 <Items>
+                    <TextBox Name="textBox253">
+                        <Localizable>False</Localizable>
+                        <Location>288px, 152px</Location>
+                        <Size>72px, 48px</Size>
+                        <Style>
+                            <BackImage>
+                                <Image>rohs_icon_blank3</Image>
+                                <MimeType>image/png</MimeType>
+                                <Source>Embedded</Source>
+                            </BackImage>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>14px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                            <Padding>
+                                <Left>23px</Left>
+                                <Top>12px</Top>
+                            </Padding>
+                            <TextAlign>Left</TextAlign>
+                            <VerticalAlign>Top</VerticalAlign>
+                        </Style>
+                        <Value>='RoHS'</Value>
+                    </TextBox>
                     <TextBox Name="textBox76">
                         <Localizable>False</Localizable>
                         <Location>0px, 0px</Location>
@@ -3414,7 +3534,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox84">
                         <Localizable>False</Localizable>
                         <Location>0px, 140px</Location>
-                        <Size>384px, 20px</Size>
+                        <Size>280px, 20px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -3427,7 +3547,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox85">
                         <Localizable>False</Localizable>
                         <Location>0px, 160px</Location>
-                        <Size>384px, 20px</Size>
+                        <Size>280px, 20px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -3455,7 +3575,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Format>='N0'</Format>
                         <Localizable>False</Localizable>
                         <Location>144px, 200px</Location>
-                        <Size>96px, 20px</Size>
+                        <Size>88px, 20px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -3468,7 +3588,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     </TextBox>
                     <TextBox Name="textBox88">
                         <Localizable>False</Localizable>
-                        <Location>248px, 180px</Location>
+                        <Location>240px, 180px</Location>
                         <Size>48px, 20px</Size>
                         <Style>
                             <Font>
@@ -3497,7 +3617,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Format>='N0'</Format>
                         <Localizable>False</Localizable>
                         <Location>144px, 180px</Location>
-                        <Size>96px, 20px</Size>
+                        <Size>88px, 20px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -3510,7 +3630,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     </TextBox>
                     <TextBox Name="textBox91">
                         <Localizable>False</Localizable>
-                        <Location>248px, 200px</Location>
+                        <Location>240px, 200px</Location>
                         <Size>48px, 20px</Size>
                         <Style>
                             <Font>
@@ -3576,7 +3696,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox100">
                         <Localizable>False</Localizable>
                         <Location>0px, 160px</Location>
-                        <Size>384px, 16px</Size>
+                        <Size>280px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -3731,7 +3851,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <CanGrow>True</CanGrow>
                         <Localizable>False</Localizable>
                         <Location>0px, 176px</Location>
-                        <Size>384px, 16px</Size>
+                        <Size>280px, 16px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -3778,6 +3898,30 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             <VerticalAlign>Top</VerticalAlign>
                         </Style>
                         <Value>='LINE{br}   '+IIF(@ProdLine = null, Left([outter.ProdLine],1), @ProdLine)</Value>
+                    </TextBox>
+                    <TextBox Name="textBox254">
+                        <Localizable>False</Localizable>
+                        <Location>288px, 160px</Location>
+                        <Size>72px, 48px</Size>
+                        <Style>
+                            <BackImage>
+                                <Image>rohs_icon_blank3</Image>
+                                <MimeType>image/png</MimeType>
+                                <Source>Embedded</Source>
+                            </BackImage>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>14px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                            <Padding>
+                                <Left>23px</Left>
+                                <Top>12px</Top>
+                            </Padding>
+                            <TextAlign>Left</TextAlign>
+                            <VerticalAlign>Top</VerticalAlign>
+                        </Style>
+                        <Value>='RoHS'</Value>
                     </TextBox>
                     <TextBox Name="textBox81">
                         <Localizable>False</Localizable>
@@ -4012,7 +4156,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Format>='N0'</Format>
                         <Localizable>False</Localizable>
                         <Location>144px, 200px</Location>
-                        <Size>96px, 20px</Size>
+                        <Size>88px, 20px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -4054,7 +4198,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Format>='N0'</Format>
                         <Localizable>False</Localizable>
                         <Location>144px, 180px</Location>
-                        <Size>96px, 20px</Size>
+                        <Size>88px, 20px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -4460,7 +4604,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 <Items>
                     <TextBox Name="textBox153">
                         <Localizable>False</Localizable>
-                        <Location>248px, 200px</Location>
+                        <Location>240px, 200px</Location>
                         <Size>48px, 20px</Size>
                         <Style>
                             <Font>
@@ -4636,7 +4780,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     </TextBox>
                     <TextBox Name="textBox165">
                         <Localizable>False</Localizable>
-                        <Location>248px, 180px</Location>
+                        <Location>240px, 180px</Location>
                         <Size>48px, 20px</Size>
                         <Style>
                             <Font>
@@ -4679,7 +4823,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox168">
                         <Localizable>False</Localizable>
                         <Location>0px, 160px</Location>
-                        <Size>376px, 20px</Size>
+                        <Size>280px, 20px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -4693,7 +4837,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox169">
                         <Localizable>False</Localizable>
                         <Location>0px, 140px</Location>
-                        <Size>376px, 20px</Size>
+                        <Size>280px, 20px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -4716,10 +4860,33 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         </Style>
                         <Value>=IIF([@Description] = null, [InventoryItem.Descr], [@Description])</Value>
                     </TextBox>
+                    <TextBox Name="textBox251">
+                        <Localizable>False</Localizable>
+                        <Location>288px, 170px</Location>
+                        <Size>88px, 48px</Size>
+                        <Style>
+                            <BackImage>
+                                <Image>rohs_icon_blank3</Image>
+                                <MimeType>image/png</MimeType>
+                                <Source>Embedded</Source>
+                            </BackImage>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>14px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                            <Padding>
+                                <Left>23px</Left>
+                                <Top>12px</Top>
+                            </Padding>
+                            <TextAlign>Left</TextAlign>
+                            <VerticalAlign>Top</VerticalAlign>
+                        </Style>
+                        <Value>='RoHS'</Value>
+                    </TextBox>
                 </Items>
             </Detail>
             <Detail Name="SJM">
-                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([outter.Customer] = 'SJM' Or @Customer = 'SJM')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
@@ -4810,7 +4977,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     </TextBox>
                     <TextBox Name="textBox177">
                         <Localizable>False</Localizable>
-                        <Location>248px, 200px</Location>
+                        <Location>240px, 200px</Location>
                         <Size>48px, 20px</Size>
                         <Style>
                             <Font>
@@ -4826,7 +4993,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Format>='N0'</Format>
                         <Localizable>False</Localizable>
                         <Location>144px, 180px</Location>
-                        <Size>96px, 20px</Size>
+                        <Size>88px, 20px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -4852,7 +5019,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     </TextBox>
                     <TextBox Name="textBox180">
                         <Localizable>False</Localizable>
-                        <Location>248px, 180px</Location>
+                        <Location>240px, 180px</Location>
                         <Size>48px, 20px</Size>
                         <Style>
                             <Font>
@@ -4868,7 +5035,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Format>='N0'</Format>
                         <Localizable>False</Localizable>
                         <Location>144px, 200px</Location>
-                        <Size>96px, 20px</Size>
+                        <Size>88px, 20px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -4895,7 +5062,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox183">
                         <Localizable>False</Localizable>
                         <Location>0px, 160px</Location>
-                        <Size>384px, 20px</Size>
+                        <Size>280px, 20px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -4909,7 +5076,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox184">
                         <Localizable>False</Localizable>
                         <Location>0px, 140px</Location>
-                        <Size>384px, 20px</Size>
+                        <Size>280px, 20px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -4995,6 +5162,30 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         </Style>
                         <Value>='Customer Part NO. : '+IIF([@CustomerPartNo] = [SOLine.AlternateID], #010;Replace([SOLine.AlternateID],' ',' (REV.') + #010;IIF([SOLine.AlternateID] = null Or InStr([SOLine.AlternateID],' ') = -1, ' ', ')'  ),#010;[@CustomerPartNo])</Value>
                     </TextBox>
+                    <TextBox Name="textBox252">
+                        <Localizable>False</Localizable>
+                        <Location>288px, 170px</Location>
+                        <Size>88px, 48px</Size>
+                        <Style>
+                            <BackImage>
+                                <Image>rohs_icon_blank3</Image>
+                                <MimeType>image/png</MimeType>
+                                <Source>Embedded</Source>
+                            </BackImage>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>14px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                            <Padding>
+                                <Left>23px</Left>
+                                <Top>12px</Top>
+                            </Padding>
+                            <TextAlign>Left</TextAlign>
+                            <VerticalAlign>Top</VerticalAlign>
+                        </Style>
+                        <Value>='RoHS'</Value>
+                    </TextBox>
                 </Items>
             </Detail>
             <PageFooter Name="SJM-Footer">
@@ -5018,7 +5209,6 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </PageFooter>
             <Detail Name="General-Resistor">
-                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF([outter.Customer] &lt;&gt; 'OSI' #010;And [outter.Customer] &lt;&gt; 'AMC'#010;And [outter.Customer] &lt;&gt; 'SJM'#010;And [outter.Customer] &lt;&gt; 'MASIMO'#010;And [outter.Customer] &lt;&gt; '科曼'#010;And @Customer &lt;&gt; 'OSI'#010;And @Customer &lt;&gt; 'AMC'#010;And @Customer &lt;&gt; 'SJM'#010;And @Customer &lt;&gt; 'MASIMO'#010;And @Customer &lt;&gt; '科曼'#010;And UCASE(@Customer) &lt;&gt; 'MEDLINE'#010;And ([InventoryItem.RESISTOR_Attributes] &lt;&gt; null OR @Resistor &lt;&gt; null ) ,true,false)</VisibleExpr>
@@ -5026,7 +5216,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox191">
                         <Localizable>False</Localizable>
                         <Location>0px, 152px</Location>
-                        <Size>376px, 18px</Size>
+                        <Size>280px, 18px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -5076,7 +5266,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox194">
                         <Localizable>False</Localizable>
                         <Location>0px, 170px</Location>
-                        <Size>376px, 18px</Size>
+                        <Size>280px, 18px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -5104,7 +5294,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Format>='N0'</Format>
                         <Localizable>False</Localizable>
                         <Location>144px, 188px</Location>
-                        <Size>96px, 18px</Size>
+                        <Size>88px, 18px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -5117,7 +5307,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     </TextBox>
                     <TextBox Name="textBox197">
                         <Localizable>False</Localizable>
-                        <Location>248px, 188px</Location>
+                        <Location>240px, 188px</Location>
                         <Size>48px, 18px</Size>
                         <Style>
                             <Font>
@@ -5201,7 +5391,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Format>='N0'</Format>
                         <Localizable>False</Localizable>
                         <Location>144px, 206px</Location>
-                        <Size>96px, 18px</Size>
+                        <Size>88px, 18px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -5282,7 +5472,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     </TextBox>
                     <TextBox Name="textBox209">
                         <Localizable>False</Localizable>
-                        <Location>248px, 206px</Location>
+                        <Location>240px, 206px</Location>
                         <Size>48px, 18px</Size>
                         <Style>
                             <Font>
@@ -5293,6 +5483,30 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             <TextAlign>Left</TextAlign>
                         </Style>
                         <Value>=IIF(@ShipmentUOM = null ,'PCS',@ShipmentUOM)</Value>
+                    </TextBox>
+                    <TextBox Name="textBox255">
+                        <Localizable>False</Localizable>
+                        <Location>288px, 160px</Location>
+                        <Size>72px, 48px</Size>
+                        <Style>
+                            <BackImage>
+                                <Image>rohs_icon_blank3</Image>
+                                <MimeType>image/png</MimeType>
+                                <Source>Embedded</Source>
+                            </BackImage>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>14px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                            <Padding>
+                                <Left>23px</Left>
+                                <Top>12px</Top>
+                            </Padding>
+                            <TextAlign>Left</TextAlign>
+                            <VerticalAlign>Top</VerticalAlign>
+                        </Style>
+                        <Value>='RoHS'</Value>
                     </TextBox>
                 </Items>
             </Detail>
@@ -5566,7 +5780,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 <Items>
                     <TextBox Name="textBox228">
                         <Localizable>False</Localizable>
-                        <Location>248px, 206px</Location>
+                        <Location>240px, 206px</Location>
                         <Size>48px, 18px</Size>
                         <Style>
                             <Font>
@@ -5650,7 +5864,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Format>='N0'</Format>
                         <Localizable>False</Localizable>
                         <Location>144px, 206px</Location>
-                        <Size>96px, 18px</Size>
+                        <Size>88px, 18px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -5731,7 +5945,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     </TextBox>
                     <TextBox Name="textBox240">
                         <Localizable>False</Localizable>
-                        <Location>248px, 188px</Location>
+                        <Location>240px, 188px</Location>
                         <Size>48px, 18px</Size>
                         <Style>
                             <Font>
@@ -5747,7 +5961,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                         <Format>='N0'</Format>
                         <Localizable>False</Localizable>
                         <Location>144px, 188px</Location>
-                        <Size>96px, 18px</Size>
+                        <Size>88px, 18px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -5774,7 +5988,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox243">
                         <Localizable>False</Localizable>
                         <Location>0px, 170px</Location>
-                        <Size>376px, 18px</Size>
+                        <Size>280px, 18px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -5825,7 +6039,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     <TextBox Name="textBox246">
                         <Localizable>False</Localizable>
                         <Location>0px, 152px</Location>
-                        <Size>376px, 18px</Size>
+                        <Size>280px, 18px</Size>
                         <Style>
                             <Font>
                                 <Name>Arial</Name>
@@ -5834,6 +6048,30 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             </Font>
                         </Style>
                         <Value>='RESISTOR : '+IIF([@Resistor] = null, IIF([InventoryItem.RESISTOR_Attributes] = null, '',[InventoryItem.RESISTOR_Attributes]),[@Resistor])</Value>
+                    </TextBox>
+                    <TextBox Name="textBox256">
+                        <Localizable>False</Localizable>
+                        <Location>296px, 160px</Location>
+                        <Size>72px, 48px</Size>
+                        <Style>
+                            <BackImage>
+                                <Image>rohs_icon_blank3</Image>
+                                <MimeType>image/png</MimeType>
+                                <Source>Embedded</Source>
+                            </BackImage>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>14px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                            <Padding>
+                                <Left>23px</Left>
+                                <Top>12px</Top>
+                            </Padding>
+                            <TextAlign>Left</TextAlign>
+                            <VerticalAlign>Top</VerticalAlign>
+                        </Style>
+                        <Value>='RoHS'</Value>
                     </TextBox>
                 </Items>
             </Detail>
