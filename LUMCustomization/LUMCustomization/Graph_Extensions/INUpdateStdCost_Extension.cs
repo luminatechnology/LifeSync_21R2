@@ -1,4 +1,5 @@
-﻿using PX.Data;
+﻿using LUMCustomizations.DAC;
+using PX.Data;
 using PX.Data.BQL;
 using PX.Data.BQL.Fluent;
 using PX.Objects.CS;
@@ -159,6 +160,42 @@ namespace PX.Objects.IN
                 => SelectFrom<INSiteBuilding>
                    .Where<INSiteBuilding.buildingCD.IsEqual<P.AsString>>
                    .View.Select(new PXGraph(), "MARK").TopFirst?.BuildingID ?? -1;
+        }
+    }
+
+    public class INUpdateStdCostProcessExt : PXGraphExtension<INUpdateStdCostProcess>
+    {
+        [InjectDependency]
+        private ICurrentUserInformationProvider _currentUserInformationProvider { get; set; }
+
+        public delegate void UpdateStdCostDelegate(INUpdateStdCostRecord itemsite);
+        [PXOverride]
+        public virtual void UpdateStdCost(INUpdateStdCostRecord itemsite, UpdateStdCostDelegate baseMethod)
+        {
+            try
+            {
+                // Execute Standard Process
+                baseMethod(itemsite);
+                // Insert log
+                List<PXDataFieldAssign> assigns = new List<PXDataFieldAssign>();
+                //assigns.Add(new PXDataFieldAssign<LUMStdCostUpdateLog.sequenceNumber>((PXDatabase.SelectIdentity(typeof(LUMStdCostUpdateLog), "SequenceNumber") ?? 0) + 1));
+                assigns.Add(new PXDataFieldAssign<LUMStdCostUpdateLog.inventroyID>(itemsite.InventoryID));
+                assigns.Add(new PXDataFieldAssign<LUMStdCostUpdateLog.siteid>(itemsite.SiteID));
+                assigns.Add(new PXDataFieldAssign<LUMStdCostUpdateLog.stdCostDate>(itemsite.PendingStdCostDate));
+                assigns.Add(new PXDataFieldAssign<LUMStdCostUpdateLog.stdCost>(itemsite.PendingStdCost));
+                assigns.Add(new PXDataFieldAssign<LUMStdCostUpdateLog.lastStdCost>(itemsite.StdCost));
+                assigns.Add(new PXDataFieldAssign<LUMStdCostUpdateLog.createdByID>(_currentUserInformationProvider.GetUserId()));
+                assigns.Add(new PXDataFieldAssign<LUMStdCostUpdateLog.createdDateTime>(DateTime.Now));
+                assigns.Add(new PXDataFieldAssign<LUMStdCostUpdateLog.createdByScreenID>(Base.Accessinfo.ScreenID.ToString().Replace(".", "")));
+                assigns.Add(new PXDataFieldAssign<LUMStdCostUpdateLog.lastModifiedByID>(_currentUserInformationProvider.GetUserId()));
+                assigns.Add(new PXDataFieldAssign<LUMStdCostUpdateLog.lastModifiedDateTime>(DateTime.Now));
+                assigns.Add(new PXDataFieldAssign<LUMStdCostUpdateLog.lastModifiedByScreenID>(Base.Accessinfo.ScreenID.ToString().Replace(".", "")));
+                PXDatabase.Insert<LUMStdCostUpdateLog>(assigns.ToArray());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
