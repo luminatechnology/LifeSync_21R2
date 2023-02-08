@@ -200,7 +200,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                 <ParentName>AMProdItem</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>http://localhost/LifeSync_2021R2/</SchemaUrl>
+        <SchemaUrl>https://abamedical.acumatica.com/</SchemaUrl>
         <Sorting>
             <SortExp>
                 <DataField>inner.Container</DataField>
@@ -2310,7 +2310,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                             </Font>
                             <VerticalAlign>Top</VerticalAlign>
                         </Style>
-                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; [inner.Customer], @Customer, IIF([inner.Customer] = null,'',UCASE([inner.Customer])))</Value>
+                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; [inner.Customer], UCASE(@Customer), IIF([inner.Customer] = null,'',UCASE([inner.Customer])))</Value>
                     </TextBox>
                     <TextBox Name="textBox6">
                         <Localizable>False</Localizable>
@@ -2467,7 +2467,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                             </Font>
                             <VerticalAlign>Top</VerticalAlign>
                         </Style>
-                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; [inner.Customer], @Customer, IIF([inner.Customer] = null,'',UCASE([inner.Customer])))</Value>
+                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; [inner.Customer], UCASE(@Customer), IIF([inner.Customer] = null,'',UCASE([inner.Customer])))</Value>
                     </TextBox>
                     <TextBox Name="textBox19">
                         <Localizable>False</Localizable>
@@ -2688,7 +2688,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                             </Font>
                             <VerticalAlign>Top</VerticalAlign>
                         </Style>
-                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; [inner.Customer], @Customer, IIF([inner.Customer] = null,'',UCASE([inner.Customer])))</Value>
+                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; [inner.Customer], UCASE(@Customer), IIF([inner.Customer] = null,'',UCASE([inner.Customer])))</Value>
                     </TextBox>
                     <TextBox Name="textBox31">
                         <Localizable>False</Localizable>
@@ -2815,6 +2815,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                 </Items>
             </Detail>
             <Detail Name="MASIMO">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([inner.Customer] = 'MASIMO' Or @Customer = 'MASIMO')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
@@ -2884,7 +2885,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                             </Font>
                             <VerticalAlign>Top</VerticalAlign>
                         </Style>
-                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; [inner.Customer], @Customer, IIF([inner.Customer] = null,'',UCASE([inner.Customer])))</Value>
+                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; [inner.Customer], UCASE(@Customer), IIF([inner.Customer] = null,'',UCASE([inner.Customer])))</Value>
                     </TextBox>
                     <TextBox Name="textBox44">
                         <Localizable>False</Localizable>
@@ -3022,6 +3023,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                 </Items>
             </Detail>
             <Detail Name="MASIMO-Resistor">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([inner.Customer] = 'MASIMO' Or @Customer = 'MASIMO')#010;And ([InventoryItem.RESISTOR_Attributes] &lt;&gt; null Or @Resistor &lt;&gt; null) , true, false)</VisibleExpr>
@@ -3091,7 +3093,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                             </Font>
                             <VerticalAlign>Top</VerticalAlign>
                         </Style>
-                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; [inner.Customer], @Customer, IIF([inner.Customer] = null,'',UCASE([inner.Customer])))</Value>
+                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; [inner.Customer], UCASE(@Customer), IIF([inner.Customer] = null,'',UCASE([inner.Customer])))</Value>
                     </TextBox>
                     <TextBox Name="textBox57">
                         <Localizable>False</Localizable>
@@ -3326,7 +3328,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                             </Font>
                             <VerticalAlign>Top</VerticalAlign>
                         </Style>
-                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; [inner.Customer], @Customer, IIF([inner.Customer] = null,'',UCASE([inner.Customer])))</Value>
+                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; [inner.Customer], UCASE(@Customer), IIF([inner.Customer] = null,'',UCASE([inner.Customer])))</Value>
                     </TextBox>
                     <TextBox Name="textBox71">
                         <CanSplit>True</CanSplit>
@@ -3589,7 +3591,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                             </Font>
                             <VerticalAlign>Top</VerticalAlign>
                         </Style>
-                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; [inner.Customer], @Customer, IIF([inner.Customer] = null,'',UCASE([inner.Customer])))</Value>
+                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; [inner.Customer], UCASE(@Customer), IIF([inner.Customer] = null,'',UCASE([inner.Customer])))</Value>
                     </TextBox>
                     <TextBox Name="textBox88">
                         <Localizable>False</Localizable>
@@ -3681,7 +3683,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                             </Font>
                             <VerticalAlign>Top</VerticalAlign>
                         </Style>
-                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; [inner.Customer], @Customer, IIF([inner.Customer] = null,'',UCASE([inner.Customer])))</Value>
+                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; [inner.Customer], UCASE(@Customer), IIF([inner.Customer] = null,'',UCASE([inner.Customer])))</Value>
                     </TextBox>
                     <TextBox Name="textBox101">
                         <Localizable>False</Localizable>
@@ -4245,7 +4247,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                             </Font>
                             <VerticalAlign>Top</VerticalAlign>
                         </Style>
-                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; [inner.Customer], @Customer, IIF([inner.Customer] = null,'',UCASE([inner.Customer])))</Value>
+                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; [inner.Customer], UCASE(@Customer), IIF([inner.Customer] = null,'',UCASE([inner.Customer])))</Value>
                     </TextBox>
                     <TextBox Name="textBox127">
                         <Localizable>False</Localizable>
@@ -4396,7 +4398,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                             </Font>
                             <VerticalAlign>Top</VerticalAlign>
                         </Style>
-                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; [inner.Customer], @Customer, IIF([inner.Customer] = null,'',UCASE([inner.Customer])))</Value>
+                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; [inner.Customer], UCASE(@Customer), IIF([inner.Customer] = null,'',UCASE([inner.Customer])))</Value>
                     </TextBox>
                     <TextBox Name="textBox136">
                         <Localizable>False</Localizable>
@@ -4534,6 +4536,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                 </Items>
             </Detail>
             <Detail Name="MEDLINE-Register">
+                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <VisibleExpr>=IIF((UCASE([inner.Customer]) = 'MEDLINE' Or UCASE(@Customer) = 'MEDLINE')#010;And ([InventoryItem.RESISTOR_Attributes] &lt;&gt; null Or @Resistor &lt;&gt; null) , true, false)</VisibleExpr>
                 <Items>
@@ -4602,7 +4605,7 @@ HefvQuL8IZstLruu7CXX/kHIn35oCS2OU3plZaWJyhv6ob0gDi2O40JTU5OJyhv6oT3OhRZ3cXEhg4OD
                             </Font>
                             <VerticalAlign>Top</VerticalAlign>
                         </Style>
-                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; [inner.Customer], @Customer, IIF([inner.Customer] = null,'',UCASE([inner.Customer])))</Value>
+                        <Value>='Customer : '+ IIF(@Customer &lt;&gt; [inner.Customer], UCASE(@Customer), IIF([inner.Customer] = null,'',UCASE([inner.Customer])))</Value>
                     </TextBox>
                     <TextBox Name="textBox148">
                         <Localizable>False</Localizable>
