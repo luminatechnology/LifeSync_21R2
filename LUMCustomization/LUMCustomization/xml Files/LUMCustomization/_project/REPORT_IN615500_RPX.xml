@@ -304,7 +304,7 @@
                 <ParentName>INSite</ParentName>
             </ReportRelation>
             <ReportRelation>
-                <ChildName>INItemXRef</ChildName>
+                <ChildName>v_TOPINItemXRef</ChildName>
                 <Links>
                     <RelationRow>
                         <ChildField>InventoryID</ChildField>
@@ -318,14 +318,10 @@
                 <ParentName>InventoryItem</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>https://abamedical.acumatica.com/</SchemaUrl>
+        <SchemaUrl>http://localhost/LifeSync_2021R2/</SchemaUrl>
         <Sorting>
             <SortExp>
                 <DataField>INTranCost.CreatedDateTime</DataField>
-            </SortExp>
-            <SortExp>
-                <DataField>INItemXRef.BAccountID</DataField>
-                <SortOrder>Descending</SortOrder>
             </SortExp>
         </Sorting>
         <StylesTemplate>TemplateReport.rpx</StylesTemplate>
@@ -2605,6 +2601,75 @@
                 </Fields>
                 <FullName>PX.Objects.IN.InventoryItem</FullName>
             </ReportTable>
+            <ReportTable Name="v_TOPINItemXRef">
+                <Fields>
+                    <ReportField Name="AlternateID">
+                    </ReportField>
+                    <ReportField Name="AlternateType">
+                    </ReportField>
+                    <ReportField Name="BAccountID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="CreatedByID">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_Creator_displayName">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_Creator_Username">
+                    </ReportField>
+                    <ReportField Name="CreatedByID_description">
+                    </ReportField>
+                    <ReportField Name="CreatedByScreenID">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Day">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Hour">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Month">
+                    </ReportField>
+                    <ReportField Name="CreatedDateTime_Quarter">
+                    </ReportField>
+                    <ReportField Name="Descr">
+                    </ReportField>
+                    <ReportField Name="InventoryID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_description">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_Modifier_displayName">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByID_Modifier_Username">
+                    </ReportField>
+                    <ReportField Name="LastModifiedByScreenID">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime">
+                        <DataType>DateTime</DataType>
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Day">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Hour">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Month">
+                    </ReportField>
+                    <ReportField Name="LastModifiedDateTime_Quarter">
+                    </ReportField>
+                    <ReportField Name="Seq">
+                        <DataType>Int64</DataType>
+                    </ReportField>
+                    <ReportField Name="SubItemID">
+                        <DataType>Int32</DataType>
+                    </ReportField>
+                    <ReportField Name="Tstamp">
+                    </ReportField>
+                    <ReportField Name="Uom">
+                    </ReportField>
+                </Fields>
+                <FullName>LUMCustomizations.DAC.v_TOPINItemXRef</FullName>
+            </ReportTable>
         </Tables>
         <Version>20201103</Version>
         <ViewerFields>
@@ -3335,7 +3400,7 @@
                                 <Location>640px, 0px</Location>
                                 <Size>120px, 14px</Size>
                                 <StyleName>Normal</StyleName>
-                                <Value>=[INItemXRef.AlternateID]</Value>
+                                <Value>=[v_TOPINItemXRef.AlternateID]</Value>
                             </TextBox>
                             <TextBox Name="textBox52">
                                 <Excel>

@@ -106,6 +106,7 @@
     <Compile Include="DAC\LUMStdBomCost.cs" />
     <Compile Include="DAC\LUMStdCostUpdateLog.cs" />
     <Compile Include="DAC\PrintParameters.cs" />
+    <Compile Include="DAC\v_TOPINItemXRef.cs" />
     <Compile Include="DAC_Extensions\AMBatchExtension.cs" />
     <Compile Include="DAC_Extensions\AMBomMatlExtensions.cs" />
     <Compile Include="DAC_Extensions\AMMPSExtension.cs" />

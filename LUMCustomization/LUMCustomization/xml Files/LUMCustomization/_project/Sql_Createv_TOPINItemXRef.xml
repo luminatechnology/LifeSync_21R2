@@ -1,0 +1,19 @@
+﻿<Sql TableName="Createv_TOPINItemXRef" SqlScriptPriority="10" CustomScript="#CDATA">
+    <CDATA name="CustomScript"><![CDATA[IF EXISTS
+(
+	SELECT *
+	FROM SYS.views
+	WHERE name = 'v_TOPINItemXRef' AND SCHEMA_ID = SCHEMA_ID('dbo')
+)
+DROP VIEW [dbo].[v_TOPINItemXRef]	
+GO
+CREATE VIEW v_TOPINItemXRef AS
+with ItemXrefCTE as (
+	SELECT ROW_NUMBER() OVER (PARTITION BY CompanyID, InventoryID Order BY InventoryID) as Seq,* 
+	FROM INItemXRef 
+	WHERE companyid > 0
+)
+SELECT *
+FROM ItemXrefCTE
+WHERE  Seq = 1]]></CDATA>
+</Sql>
