@@ -1,5 +1,5 @@
 ﻿<Report Name="lm206105.rpx">
-    <Report Name="report1" version="20201103">
+    <Report version="20201103" Name="report1">
         <Filters>
             <FilterExp>
                 <DataField>AMBatch.BatNbr</DataField>
@@ -96,7 +96,7 @@
                 <ParentName>AMMTran</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>http://localhost/AcumaticaLifeSync/</SchemaUrl>
+        <SchemaUrl>https://abamedical.acumatica.com/</SchemaUrl>
         <Sorting>
             <SortExp>
                 <DataField>InventoryItem.InventoryCD</DataField>
@@ -2316,13 +2316,26 @@
                 <FullName>PX.Objects.AM.AMMTranSplit</FullName>
             </ReportTable>
         </Tables>
+        <Version>20201103</Version>
         <Sections>
             <PageHeader Name="pageHeaderSection1">
-                <Height>2.75132cm</Height>
+                <Height>3.38624cm</Height>
                 <Items>
+                    <PictureBox Name="pictureBox1">
+                        <BarcodeType>QRCode</BarcodeType>
+                        <Location>16px, 0px</Location>
+                        <MimeType>image/bmp</MimeType>
+                        <QRCodeSettings>
+                            <CodeSize>80</CodeSize>
+                            <LeftMargin>30</LeftMargin>
+                        </QRCodeSettings>
+                        <Size>152px, 80px</Size>
+                        <Source>Barcode</Source>
+                        <Value>=[AMBatch.BatNbr]</Value>
+                    </PictureBox>
                     <TextBox Name="textBox1">
-                        <Location>0px, 0px</Location>
-                        <Size>712px, 24px</Size>
+                        <Location>224px, 0px</Location>
+                        <Size>280px, 32px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft JhengHei UI</Name>
@@ -2346,18 +2359,18 @@
                         <Value>生产退料单</Value>
                     </TextBox>
                     <TextBox Name="textBox13">
-                        <Location>56px, 64px</Location>
+                        <Location>56px, 88px</Location>
                         <Size>136px, 16px</Size>
                         <Value>=IIF([AMMTran.OrderType] = 'MO', [AMBatch.BatNbr], 'N'+[AMBatch.BatNbr])</Value>
                     </TextBox>
                     <TextBox Name="textBox17">
                         <Format>='yyyy-MM-dd'</Format>
-                        <Location>608px, 64px</Location>
+                        <Location>608px, 88px</Location>
                         <Size>104px, 16px</Size>
                         <Value>=[AMBatch.TranDate]</Value>
                     </TextBox>
                     <TextBox Name="textBox18">
-                        <Location>368px, 64px</Location>
+                        <Location>368px, 88px</Location>
                         <Size>120px, 16px</Size>
                         <Style>
                             <Font>
@@ -2367,7 +2380,7 @@
                         <Value>=[AMProdAttribute.Value]</Value>
                     </TextBox>
                     <TextBox Name="textBox19">
-                        <Location>0px, 80px</Location>
+                        <Location>0px, 104px</Location>
                         <Size>32px, 24px</Size>
                         <Style>
                             <BorderStyle>
@@ -2392,7 +2405,7 @@
                         <Value>序号</Value>
                     </TextBox>
                     <TextBox Name="textBox2">
-                        <Location>0px, 64px</Location>
+                        <Location>0px, 88px</Location>
                         <Size>56px, 16px</Size>
                         <Style>
                             <Font>
@@ -2402,7 +2415,7 @@
                         <Value>退料单号:</Value>
                     </TextBox>
                     <TextBox Name="textBox20">
-                        <Location>32px, 80px</Location>
+                        <Location>32px, 104px</Location>
                         <Size>88px, 24px</Size>
                         <Style>
                             <BorderStyle>
@@ -2425,7 +2438,7 @@
                         <Value>工单单号</Value>
                     </TextBox>
                     <TextBox Name="textBox21">
-                        <Location>176px, 80px</Location>
+                        <Location>176px, 104px</Location>
                         <Size>160px, 24px</Size>
                         <Style>
                             <BorderStyle>
@@ -2448,7 +2461,7 @@
                         <Value>品名规格</Value>
                     </TextBox>
                     <TextBox Name="textBox22">
-                        <Location>336px, 80px</Location>
+                        <Location>336px, 104px</Location>
                         <Size>72px, 24px</Size>
                         <Style>
                             <BorderStyle>
@@ -2471,7 +2484,7 @@
                         <Value>批号</Value>
                     </TextBox>
                     <TextBox Name="textBox23">
-                        <Location>120px, 80px</Location>
+                        <Location>120px, 104px</Location>
                         <Size>56px, 24px</Size>
                         <Style>
                             <BorderStyle>
@@ -2494,7 +2507,7 @@
                         <Value>物料品号</Value>
                     </TextBox>
                     <TextBox Name="textBox24">
-                        <Location>472px, 80px</Location>
+                        <Location>472px, 104px</Location>
                         <Size>48px, 24px</Size>
                         <Style>
                             <BorderStyle>
@@ -2517,7 +2530,7 @@
                         <Value>单位</Value>
                     </TextBox>
                     <TextBox Name="textBox25">
-                        <Location>520px, 80px</Location>
+                        <Location>520px, 104px</Location>
                         <Size>40px, 24px</Size>
                         <Style>
                             <BorderStyle>
@@ -2540,7 +2553,7 @@
                         <Value>仓库</Value>
                     </TextBox>
                     <TextBox Name="textBox26">
-                        <Location>560px, 80px</Location>
+                        <Location>560px, 104px</Location>
                         <Size>72px, 24px</Size>
                         <Style>
                             <BorderStyle>
@@ -2563,7 +2576,7 @@
                         <Value>库位</Value>
                     </TextBox>
                     <TextBox Name="textBox27">
-                        <Location>632px, 80px</Location>
+                        <Location>632px, 104px</Location>
                         <Size>80px, 24px</Size>
                         <Style>
                             <BorderStyle>
@@ -2596,7 +2609,7 @@
                         <Value>='页次 ' + [PageIndex] + '/' + [PageCount]</Value>
                     </TextBox>
                     <TextBox Name="textBox38">
-                        <Location>408px, 80px</Location>
+                        <Location>408px, 104px</Location>
                         <Size>64px, 24px</Size>
                         <Style>
                             <BorderStyle>
@@ -2619,7 +2632,7 @@
                         <Value>退料数量</Value>
                     </TextBox>
                     <TextBox Name="textBox6">
-                        <Location>576px, 64px</Location>
+                        <Location>576px, 88px</Location>
                         <Size>32px, 16px</Size>
                         <Style>
                             <Font>
@@ -2629,7 +2642,7 @@
                         <Value>日期:</Value>
                     </TextBox>
                     <TextBox Name="textBox7">
-                        <Location>312px, 64px</Location>
+                        <Location>312px, 88px</Location>
                         <Size>56px, 16px</Size>
                         <Style>
                             <Font>

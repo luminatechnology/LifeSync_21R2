@@ -1,5 +1,5 @@
 ﻿<Report Name="lm612005.rpx">
-    <Report Name="report1" version="20201103">
+    <Report version="20201103" Name="report1">
         <ExcelColumns>
             <item>15</item>
             <item>15</item>
@@ -179,7 +179,7 @@
                 <ParentName>INTran</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>http://localhost/AcumaticaLifeSync/</SchemaUrl>
+        <SchemaUrl>https://abamedical.acumatica.com/</SchemaUrl>
         <Style>
             <Font>
                 <Name>Microsoft YaHei UI</Name>
@@ -2201,23 +2201,36 @@
                 <FullName>PX.Objects.IN.INUnit</FullName>
             </ReportTable>
         </Tables>
+        <Version>20201103</Version>
         <Sections>
             <PageHeader Name="pageHeaderSection1">
                 <ExcelMargin>
                     <bottom>1</bottom>
                 </ExcelMargin>
-                <Height>2.6455cm</Height>
+                <Height>3.7037cm</Height>
                 <Items>
+                    <PictureBox Name="pictureBox1">
+                        <BarcodeType>QRCode</BarcodeType>
+                        <Location>16px, 0px</Location>
+                        <MimeType>image/bmp</MimeType>
+                        <QRCodeSettings>
+                            <CodeSize>80</CodeSize>
+                            <LeftMargin>30</LeftMargin>
+                        </QRCodeSettings>
+                        <Size>152px, 80px</Size>
+                        <Source>Barcode</Source>
+                        <Value>=[INRegister.RefNbr]</Value>
+                    </PictureBox>
                     <TextBox Name="textBox1">
                         <Format>='yyyy-MM-dd'</Format>
-                        <Location>596px, 84px</Location>
+                        <Location>596px, 120px</Location>
                         <Size>120px, 16px</Size>
                         <Value>=[INRegister.TranDate]</Value>
                         <Visible>False</Visible>
                         <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'PISCRAP' Or [INRegister.AttributeREASON] = 'IMSCRAP', True, False)</VisibleExpr>
                     </TextBox>
                     <TextBox Name="textBox11">
-                        <Location>596px, 84px</Location>
+                        <Location>596px, 120px</Location>
                         <Size>120px, 16px</Size>
                         <Style>
                             <Font>
@@ -2228,7 +2241,7 @@
                         <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'PISCRAP' Or [INRegister.AttributeREASON] = 'IMSCRAP', False, True)</VisibleExpr>
                     </TextBox>
                     <TextBox Name="textBox12">
-                        <Location>540px, 84px</Location>
+                        <Location>540px, 120px</Location>
                         <Size>56px, 16px</Size>
                         <Style>
                             <Font>
@@ -2239,7 +2252,7 @@
                         <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'PISCRAP' Or [INRegister.AttributeREASON] = 'IMSCRAP', False, True)</VisibleExpr>
                     </TextBox>
                     <TextBox Name="textBox14">
-                        <Location>344px, 68px</Location>
+                        <Location>344px, 104px</Location>
                         <Size>120px, 16px</Size>
                         <Style>
                             <Font>
@@ -2249,7 +2262,7 @@
                         <Value>=[INRegister.AttributeDEPARTMENT]</Value>
                     </TextBox>
                     <TextBox Name="textBox15">
-                        <Location>288px, 68px</Location>
+                        <Location>288px, 104px</Location>
                         <Size>56px, 16px</Size>
                         <Style>
                             <Font>
@@ -2259,7 +2272,7 @@
                         <Value>部       门:</Value>
                     </TextBox>
                     <TextBox Name="textBox16">
-                        <Location>44px, 68px</Location>
+                        <Location>44px, 104px</Location>
                         <Size>156px, 16px</Size>
                         <Style>
                             <Font>
@@ -2269,7 +2282,7 @@
                         <Value>=[INRegister.RefNbr]</Value>
                     </TextBox>
                     <TextBox Name="textBox17">
-                        <Location>540px, 68px</Location>
+                        <Location>540px, 104px</Location>
                         <Size>56px, 16px</Size>
                         <Style>
                             <Font>
@@ -2281,26 +2294,13 @@
                     </TextBox>
                     <TextBox Name="textBox18">
                         <Format>='yyyy-MM-dd'</Format>
-                        <Location>596px, 68px</Location>
+                        <Location>596px, 104px</Location>
                         <Size>120px, 16px</Size>
                         <Value>=[INRegister.TranDate]</Value>
                         <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'PISCRAP' Or [INRegister.AttributeREASON] = 'IMSCRAP', False, True)</VisibleExpr>
                     </TextBox>
-                    <TextBox Name="textBox19">
-                        <Location>0px, 0px</Location>
-                        <Size>712px, 32px</Size>
-                        <Style>
-                            <Font>
-                                <Name>Microsoft JhengHei UI</Name>
-                                <Size>22px</Size>
-                            </Font>
-                            <TextAlign>Center</TextAlign>
-                            <VerticalAlign>Middle</VerticalAlign>
-                        </Style>
-                        <Value>美博电子有限公司</Value>
-                    </TextBox>
                     <TextBox Name="textBox22">
-                        <Location>0px, 68px</Location>
+                        <Location>0px, 104px</Location>
                         <Size>44px, 16px</Size>
                         <Style>
                             <Font>
@@ -2322,7 +2322,7 @@
                         <Value>=[INRegister.AttributeREASON]</Value>
                     </TextBox>
                     <TextBox Name="textBox5">
-                        <Location>540px, 84px</Location>
+                        <Location>540px, 120px</Location>
                         <Size>56px, 16px</Size>
                         <Style>
                             <Font>
@@ -2334,7 +2334,7 @@
                         <VisibleExpr>=IIF([INRegister.AttributeREASON] = 'PISCRAP' Or [INRegister.AttributeREASON] = 'IMSCRAP', True, False)</VisibleExpr>
                     </TextBox>
                     <TextBox Name="textBox6">
-                        <Location>0px, 84px</Location>
+                        <Location>0px, 120px</Location>
                         <Size>44px, 16px</Size>
                         <Style>
                             <Font>
@@ -2344,7 +2344,7 @@
                         <Value>用途:</Value>
                     </TextBox>
                     <TextBox Name="textBox7">
-                        <Location>44px, 84px</Location>
+                        <Location>44px, 120px</Location>
                         <Size>488px, 16px</Size>
                         <Style>
                             <Font>
@@ -2352,6 +2352,17 @@
                             </Font>
                         </Style>
                         <Value>=[INRegister.TranDesc]</Value>
+                    </TextBox>
+                    <TextBox Name="textBox8">
+                        <Location>292px, 0px</Location>
+                        <Size>176px, 32px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Microsoft JhengHei UI</Name>
+                                <Size>22px</Size>
+                            </Font>
+                        </Style>
+                        <Value>美博电子有限公司</Value>
                     </TextBox>
                     <TextBox Name="textBox9">
                         <Excel>

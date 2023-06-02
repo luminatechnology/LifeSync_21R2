@@ -1,5 +1,5 @@
 ﻿<Report Name="lm644010.rpx">
-    <Report Name="report1" version="20201103">
+    <Report version="20201103" Name="report1">
         <Filters>
             <FilterExp>
                 <DataField>SOShipment.ShipmentNbr</DataField>
@@ -101,7 +101,7 @@
                 <ParentName>SOShipLine</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>http://localhost/AcumaticaLifeSync/</SchemaUrl>
+        <SchemaUrl>https://abamedical.acumatica.com/</SchemaUrl>
         <Tables>
             <ReportTable Name="Branch">
                 <Fields>
@@ -2909,12 +2909,25 @@
                 <FullName>PX.Objects.SO.SOShipLineSplit</FullName>
             </ReportTable>
         </Tables>
+        <Version>20201103</Version>
         <Sections>
             <PageHeader Name="pageHeaderSection1">
-                <Height>3.1746cm</Height>
+                <Height>3.80952cm</Height>
                 <Items>
+                    <PictureBox Name="pictureBox1">
+                        <BarcodeType>QRCode</BarcodeType>
+                        <Location>24px, 0px</Location>
+                        <MimeType>image/bmp</MimeType>
+                        <QRCodeSettings>
+                            <CodeSize>80</CodeSize>
+                            <LeftMargin>30</LeftMargin>
+                        </QRCodeSettings>
+                        <Size>152px, 80px</Size>
+                        <Source>Barcode</Source>
+                        <Value>=[SOShipment.ShipmentNbr]</Value>
+                    </PictureBox>
                     <TextBox Name="textBox1">
-                        <Location>512px, 96px</Location>
+                        <Location>512px, 120px</Location>
                         <Size>64px, 24px</Size>
                         <Style>
                             <BorderStyle>
@@ -2938,7 +2951,7 @@
                     </TextBox>
                     <TextBox Name="textBox16">
                         <Format>='yyyy-MM-dd'</Format>
-                        <Location>336px, 72px</Location>
+                        <Location>336px, 96px</Location>
                         <Size>136px, 24px</Size>
                         <Style>
                             <Font>
@@ -2951,7 +2964,7 @@
                         <Value>=[SOShipment.ShipDate]</Value>
                     </TextBox>
                     <TextBox Name="textBox17">
-                        <Location>592px, 72px</Location>
+                        <Location>592px, 96px</Location>
                         <Size>96px, 24px</Size>
                         <Style>
                             <Font>
@@ -2964,7 +2977,7 @@
                         <Value>=[SOShipment.ShipmentNbr]</Value>
                     </TextBox>
                     <TextBox Name="textBox2">
-                        <Location>384px, 96px</Location>
+                        <Location>384px, 120px</Location>
                         <Size>80px, 24px</Size>
                         <Style>
                             <BorderStyle>
@@ -2987,7 +3000,7 @@
                         <Value>退货数量</Value>
                     </TextBox>
                     <TextBox Name="textBox20">
-                        <Location>48px, 64px</Location>
+                        <Location>48px, 88px</Location>
                         <Size>40px, 24px</Size>
                         <Style>
                             <Font>
@@ -3000,7 +3013,7 @@
                         <Value>成品</Value>
                     </TextBox>
                     <TextBox Name="textBox21">
-                        <Location>120px, 64px</Location>
+                        <Location>120px, 88px</Location>
                         <Size>40px, 24px</Size>
                         <Style>
                             <Font>
@@ -3013,7 +3026,7 @@
                         <Value>其它</Value>
                     </TextBox>
                     <TextBox Name="textBox22">
-                        <Location>32px, 72px</Location>
+                        <Location>32px, 96px</Location>
                         <Size>16px, 16px</Size>
                         <Style>
                             <BorderStyle>
@@ -3037,7 +3050,7 @@
                         </Style>
                     </TextBox>
                     <TextBox Name="textBox23">
-                        <Location>104px, 72px</Location>
+                        <Location>104px, 96px</Location>
                         <Size>16px, 16px</Size>
                         <Style>
                             <BorderStyle>
@@ -3087,7 +3100,7 @@
                         <Value>东莞美博电子有限公司</Value>
                     </TextBox>
                     <TextBox Name="textBox3">
-                        <Location>520px, 72px</Location>
+                        <Location>520px, 96px</Location>
                         <Size>72px, 24px</Size>
                         <Style>
                             <Font>
@@ -3100,7 +3113,7 @@
                         <Value>送货单号 :</Value>
                     </TextBox>
                     <TextBox Name="textBox32">
-                        <Location>0px, 96px</Location>
+                        <Location>0px, 120px</Location>
                         <Size>40px, 24px</Size>
                         <Style>
                             <BorderStyle>
@@ -3125,7 +3138,7 @@
                         <Value>序号</Value>
                     </TextBox>
                     <TextBox Name="textBox34">
-                        <Location>40px, 96px</Location>
+                        <Location>40px, 120px</Location>
                         <Size>56px, 24px</Size>
                         <Style>
                             <BorderStyle>
@@ -3148,7 +3161,7 @@
                         <Value>品号</Value>
                     </TextBox>
                     <TextBox Name="textBox35">
-                        <Location>96px, 96px</Location>
+                        <Location>96px, 120px</Location>
                         <Size>208px, 24px</Size>
                         <Style>
                             <BorderStyle>
@@ -3171,7 +3184,7 @@
                         <Value>品名规格</Value>
                     </TextBox>
                     <TextBox Name="textBox36">
-                        <Location>464px, 96px</Location>
+                        <Location>464px, 120px</Location>
                         <Size>48px, 24px</Size>
                         <Style>
                             <BorderStyle>
@@ -3194,7 +3207,7 @@
                         <Value>单位</Value>
                     </TextBox>
                     <TextBox Name="textBox37">
-                        <Location>304px, 96px</Location>
+                        <Location>304px, 120px</Location>
                         <Size>80px, 24px</Size>
                         <Style>
                             <BorderStyle>
@@ -3217,7 +3230,7 @@
                         <Value>批号</Value>
                     </TextBox>
                     <TextBox Name="textBox38">
-                        <Location>576px, 96px</Location>
+                        <Location>576px, 120px</Location>
                         <Size>120px, 24px</Size>
                         <Style>
                             <BorderStyle>
@@ -3240,7 +3253,7 @@
                         <Value>备注</Value>
                     </TextBox>
                     <TextBox Name="textBox4">
-                        <Location>280px, 72px</Location>
+                        <Location>280px, 96px</Location>
                         <Size>56px, 24px</Size>
                         <Style>
                             <Font>
