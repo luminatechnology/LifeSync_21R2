@@ -173,7 +173,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                 <ParentName>Location</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>http://localhost/LifeSync_2021R2/</SchemaUrl>
+        <SchemaUrl>https://abamedical.acumatica.com/</SchemaUrl>
         <Sorting>
             <SortExp>
                 <DataField>InventoryItem.InventoryCD</DataField>
@@ -5938,7 +5938,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                                 <Size>10px</Size>
                             </Font>
                         </Style>
-                        <Value>Form number: FSA-010 /Rev.00</Value>
+                        <Value>Form number: FCS-010 /Rev.00</Value>
                     </TextBox>
                     <TextBox Name="textBox55">
                         <Location>368px, 144px</Location>
