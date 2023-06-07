@@ -5653,7 +5653,7 @@ WqKKCtjmsdaiPiI/y5gpysuVEil26OHYPWU8YITqWbjK1G01QtWUQ8UIVVNy++/XVnNa//5+3GR6xHAA
                     </ReportVariable>
                     <ReportVariable>
                         <Name>TotalAmount</Name>
-                        <ValueExpr>=[LumShipmentPlan.PlannedShipQty] * [SOLine.UsrPIUnitPrice] + $TotalAmount</ValueExpr>
+                        <ValueExpr>=ROUND([LumShipmentPlan.PlannedShipQty] * [SOLine.UsrPIUnitPrice],2) + $TotalAmount</ValueExpr>
                     </ReportVariable>
                     <ReportVariable>
                         <Name>Remark</Name>
