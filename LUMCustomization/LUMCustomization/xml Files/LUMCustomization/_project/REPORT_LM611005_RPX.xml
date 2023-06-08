@@ -1,5 +1,5 @@
 ﻿<Report Name="lm611005.rpx">
-    <Report Name="report1" version="20201103">
+    <Report version="20201103" Name="report1">
         <Filters>
             <FilterExp>
                 <DataField>SOShipment.ShipmentNbr</DataField>
@@ -69,7 +69,7 @@
                 <ParentName>SOOrder</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>http://localhost/AcumaticaLifeSync/</SchemaUrl>
+        <SchemaUrl>https://abamedical.acumatica.com/</SchemaUrl>
         <Tables>
             <ReportTable Name="Branch">
                 <Fields>
@@ -2254,6 +2254,7 @@
                 <FullName>PX.Objects.SO.SOOrder</FullName>
             </ReportTable>
         </Tables>
+        <Version>20201103</Version>
         <Sections>
             <PageHeader Name="pageHeaderSection1">
                 <Height>5.71429cm</Height>
@@ -2661,7 +2662,7 @@
                             <TextAlign>Left</TextAlign>
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
-                        <Value>Form number:FSA-021/Rev.00</Value>
+                        <Value>Form number:FCS-021/Rev.00</Value>
                     </TextBox>
                 </Items>
             </PageFooter>
