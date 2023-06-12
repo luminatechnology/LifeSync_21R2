@@ -1,5 +1,5 @@
 ﻿<Report Name="lm602005.rpx">
-    <Report Name="report1" version="20201103">
+    <Report version="20201103" Name="report1">
         <Filters>
             <FilterExp>
                 <DataField>ARInvoice.RefNbr</DataField>
@@ -133,7 +133,7 @@
                 <ParentName>ARTran</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>http://localhost/AcumaticaLifeSync/</SchemaUrl>
+        <SchemaUrl>https://abamedical.acumatica.com/</SchemaUrl>
         <Tables>
             <ReportTable Name="Branch">
                 <Fields>
@@ -4237,6 +4237,7 @@
                 <FullName>PX.Data.Note</FullName>
             </ReportTable>
         </Tables>
+        <Version>20201103</Version>
         <Sections>
             <PageHeader Name="pageHeaderSection1">
                 <Height>7.83069cm</Height>
@@ -4722,6 +4723,11 @@
                         <Location>392px, 48px</Location>
                         <Size>264px, 8px</Size>
                     </Line>
+                    <TextBox Name="textBox19">
+                        <Location>24px, 40px</Location>
+                        <Size>216px, 16px</Size>
+                        <Value>Form number: FCS-017 Rev.00</Value>
+                    </TextBox>
                     <TextBox Name="textBox55">
                         <Location>392px, 0px</Location>
                         <Size>264px, 16px</Size>
