@@ -1,5 +1,5 @@
 ﻿<Report Name="lm625000.rpx">
-    <Report Name="report1" version="20201103">
+    <Report version="20201103" Name="report1">
         <CommonSettings>
             <ViewPdf>True</ViewPdf>
         </CommonSettings>
@@ -31,22 +31,6 @@
         <GridSize>4px, 4px</GridSize>
         <MailSettings>
             <ActivitySource>AMProdItem.NoteID</ActivitySource>
-            <Bcc>
-            </Bcc>
-            <Body>
-            </Body>
-            <Cc>
-            </Cc>
-            <Format>
-            </Format>
-            <ParentSource>
-            </ParentSource>
-            <Subject>
-            </Subject>
-            <TemplateID>
-            </TemplateID>
-            <To>
-            </To>
         </MailSettings>
         <PageSettings>
             <Margins>
@@ -170,7 +154,7 @@
                 <ParentName>AMProdMatl</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>http://localhost/ABA_AcumaticaDB1/</SchemaUrl>
+        <SchemaUrl>https://abamedical.acumatica.com/</SchemaUrl>
         <Sorting>
             <SortExp>
                 <DataField>AMProdItem.OrderType</DataField>
@@ -3931,6 +3915,7 @@
                 <FullName>PX.Objects.SO.SOOrder</FullName>
             </ReportTable>
         </Tables>
+        <Version>20201103</Version>
         <ViewerFields>
             <ViewerField Name="AMProdItem.OrderType">
             </ViewerField>
@@ -3939,10 +3924,10 @@
         </ViewerFields>
         <Sections>
             <PageHeader Name="pageHeaderSection1">
-                <Height>5.29101cm</Height>
+                <Height>6.66667cm</Height>
                 <Items>
                     <Panel Name="panel1">
-                        <Location>16px, 56px</Location>
+                        <Location>16px, 104px</Location>
                         <Size>664px, 144px</Size>
                         <Style>
                             <BorderColor>
@@ -4140,6 +4125,18 @@
                             </TextBox>
                         </Items>
                     </Panel>
+                    <PictureBox Name="pictureBox2">
+                        <BarcodeType>QRCode</BarcodeType>
+                        <Location>0px, 0px</Location>
+                        <MimeType>image/bmp</MimeType>
+                        <QRCodeSettings>
+                            <CodeSize>80</CodeSize>
+                            <LeftMargin>30</LeftMargin>
+                        </QRCodeSettings>
+                        <Size>152px, 80px</Size>
+                        <Source>Barcode</Source>
+                        <Value>=[AMProdItem.ProdOrdID]</Value>
+                    </PictureBox>
                     <TextBox Name="textBox1">
                         <Location>224px, 24px</Location>
                         <Size>240px, 16px</Size>
@@ -4153,7 +4150,7 @@
                         <Value>=IIF([AMOrderType.OrderType] = 'MO', '生产指令单','') +#010;IIF([AMOrderType.OrderType] = 'RO', '国内生产指令单','') + #010;IIF([AMOrderType.OrderType] = 'NO', '返工工单','')</Value>
                     </TextBox>
                     <TextBox Name="textBox14">
-                        <Location>16px, 40px</Location>
+                        <Location>16px, 88px</Location>
                         <Size>56px, 14px</Size>
                         <Style>
                             <TextAlign>Left</TextAlign>
@@ -4163,7 +4160,7 @@
                         <Value>单据日期:</Value>
                     </TextBox>
                     <TextBox Name="textBox15">
-                        <Location>568px, 40px</Location>
+                        <Location>568px, 88px</Location>
                         <Size>32px, 14px</Size>
                         <Style>
                             <TextAlign>Left</TextAlign>
@@ -4173,7 +4170,7 @@
                         <Value>页次:</Value>
                     </TextBox>
                     <TextBox Name="textBox17">
-                        <Location>608px, 40px</Location>
+                        <Location>608px, 88px</Location>
                         <Size>84px, 14px</Size>
                         <Style>
                             <TextAlign>Left</TextAlign>
@@ -4184,7 +4181,7 @@
                     </TextBox>
                     <TextBox Name="textBox19">
                         <Format>='yyyy-MM-dd'</Format>
-                        <Location>72px, 40px</Location>
+                        <Location>72px, 88px</Location>
                         <Size>60px, 14px</Size>
                         <Style>
                             <TextAlign>Left</TextAlign>
