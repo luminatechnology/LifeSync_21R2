@@ -34,6 +34,7 @@
         </MailSettings>
         <PageSettings>
             <Margins>
+                <Bottom>0.7cm</Bottom>
                 <Top>1cm</Top>
             </Margins>
         </PageSettings>
@@ -3924,10 +3925,10 @@
         </ViewerFields>
         <Sections>
             <PageHeader Name="pageHeaderSection1">
-                <Height>6.66667cm</Height>
+                <Height>6.03175cm</Height>
                 <Items>
                     <Panel Name="panel1">
-                        <Location>16px, 104px</Location>
+                        <Location>16px, 84px</Location>
                         <Size>664px, 144px</Size>
                         <Style>
                             <BorderColor>
@@ -4130,10 +4131,10 @@
                         <Location>0px, 0px</Location>
                         <MimeType>image/bmp</MimeType>
                         <QRCodeSettings>
-                            <CodeSize>80</CodeSize>
-                            <LeftMargin>30</LeftMargin>
+                            <CodeSize>70</CodeSize>
+                            <LeftMargin>40</LeftMargin>
                         </QRCodeSettings>
-                        <Size>152px, 80px</Size>
+                        <Size>152px, 64px</Size>
                         <Source>Barcode</Source>
                         <Value>=[AMProdItem.ProdOrdID]</Value>
                     </PictureBox>
@@ -4150,7 +4151,7 @@
                         <Value>=IIF([AMOrderType.OrderType] = 'MO', '生产指令单','') +#010;IIF([AMOrderType.OrderType] = 'RO', '国内生产指令单','') + #010;IIF([AMOrderType.OrderType] = 'NO', '返工工单','')</Value>
                     </TextBox>
                     <TextBox Name="textBox14">
-                        <Location>16px, 88px</Location>
+                        <Location>16px, 68px</Location>
                         <Size>56px, 14px</Size>
                         <Style>
                             <TextAlign>Left</TextAlign>
@@ -4160,7 +4161,7 @@
                         <Value>单据日期:</Value>
                     </TextBox>
                     <TextBox Name="textBox15">
-                        <Location>568px, 88px</Location>
+                        <Location>568px, 68px</Location>
                         <Size>32px, 14px</Size>
                         <Style>
                             <TextAlign>Left</TextAlign>
@@ -4170,7 +4171,7 @@
                         <Value>页次:</Value>
                     </TextBox>
                     <TextBox Name="textBox17">
-                        <Location>608px, 88px</Location>
+                        <Location>608px, 68px</Location>
                         <Size>84px, 14px</Size>
                         <Style>
                             <TextAlign>Left</TextAlign>
@@ -4181,7 +4182,7 @@
                     </TextBox>
                     <TextBox Name="textBox19">
                         <Format>='yyyy-MM-dd'</Format>
-                        <Location>72px, 88px</Location>
+                        <Location>72px, 68px</Location>
                         <Size>60px, 14px</Size>
                         <Style>
                             <TextAlign>Left</TextAlign>
@@ -4424,12 +4425,26 @@
                 </Items>
             </Detail>
             <PageFooter Name="pageFooterSection1">
-                <Height>0px</Height>
-                <Visible>False</Visible>
+                <Height>0.63492cm</Height>
+                <Items>
+                    <TextBox Name="textBox51">
+                        <Location>16px, 8px</Location>
+                        <Size>168px, 16px</Size>
+                        <Style>
+                            <Font>
+                                <Size>10px</Size>
+                            </Font>
+                        </Style>
+                        <StyleName>ChineseFont</StyleName>
+                        <Value>Form number:FPC-001/Rev.01</Value>
+                    </TextBox>
+                </Items>
             </PageFooter>
             <ReportFooter Name="reportFooterSection1">
+                <Expanded>False</Expanded>
                 <Height>0.42328cm</Height>
                 <PrintAtBottom>True</PrintAtBottom>
+                <Visible>False</Visible>
                 <Items>
                     <TextBox Name="textBox49">
                         <Location>16px, 0px</Location>
@@ -4658,7 +4673,7 @@
                 <Footers>
                     <Footer Name="groupFooterSection1">
                         <GridSize>8px, 8px</GridSize>
-                        <Height>0.5291cm</Height>
+                        <Height>0.63492cm</Height>
                         <Items>
                             <TextBox Name="textBox47">
                                 <Location>32px, 8px</Location>

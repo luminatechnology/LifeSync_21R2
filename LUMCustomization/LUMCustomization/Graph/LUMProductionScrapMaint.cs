@@ -2,6 +2,7 @@
 using PX.Data;
 using PX.Data.BQL;
 using PX.Data.BQL.Fluent;
+using PX.Objects.AM;
 using PX.Objects.CS;
 using System;
 using System.Collections;
@@ -127,9 +128,11 @@ namespace LUMCustomization.Graph
 
                 if (string.IsNullOrEmpty(row.UOM))
                 {
-                    object newUOM;
-                    e.Cache.RaiseFieldDefaulting<LUMProductionScrapDetails.uOM>(row, out newUOM);
-                    row.UOM = (string)newUOM;
+                    var prdMaterial = SelectFrom<AMProdMatl>
+                                      .Where<AMProdMatl.prodOrdID.IsEqual<P.AsString>
+                                        .And<AMProdMatl.inventoryID.IsEqual<P.AsInt>>>
+                                      .View.Select(this, this.Document.Current.ProdOrderID, row.InventoryID).TopFirst;
+                    row.UOM = prdMaterial?.UOM;
                 }
             }
         }
@@ -188,6 +191,19 @@ namespace LUMCustomization.Graph
                                         .Where<CSAttributeDetail.attributeID.IsEqual<P.AsString>>
                                         .View.Select(this, "REASON").RowCast<CSAttributeDetail>();
                 e.NewValue = attributeReasonDDL.FirstOrDefault(x => x.Description == "製程報廢")?.ValueID;
+            }
+        }
+
+        public virtual void _(Events.FieldDefaulting<LUMProductionScrapDetails.uOM> e)
+        {
+            if(this.Document.Current != null && e.Row != null)
+            {
+                var row = e.Row as LUMProductionScrapDetails;
+                var prdMaterial = SelectFrom<AMProdMatl>
+                                      .Where<AMProdMatl.prodOrdID.IsEqual<P.AsString>
+                                        .And<AMProdMatl.inventoryID.IsEqual<P.AsInt>>>
+                                      .View.Select(this, this.Document.Current.ProdOrderID, row.InventoryID).TopFirst;
+                e.NewValue = prdMaterial?.UOM;
             }
         }
 

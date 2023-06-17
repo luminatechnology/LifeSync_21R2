@@ -54,7 +54,8 @@ namespace LUMCustomization.DAC
 
         #region UOM
         [PXString]
-        [PXDefault(typeof(Search<InventoryItem.baseUnit, Where<InventoryItem.inventoryID, Equal<Current<LUMProductionScrapDetails.inventoryID>>>>))]
+        [PXDefault(PersistingCheck = PXPersistingCheck.Nothing)]
+        //[PXDefault(typeof(Search<InventoryItem.baseUnit, Where<InventoryItem.inventoryID, Equal<Current<LUMProductionScrapDetails.inventoryID>>>>))]
         [PXUIField(DisplayName = "UOM", Enabled = false)]
         public virtual string UOM { get; set; }
         public abstract class uOM : PX.Data.BQL.BqlString.Field<uOM> { }
