@@ -4598,7 +4598,6 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="科曼-停用">
-                <Expanded>False</Expanded>
                 <Height>6.77249cm</Height>
                 <Visible>False</Visible>
                 <VisibleExpr>=IIF(([outter.Customer] = '科曼' Or @Customer = '科曼')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,false,false)</VisibleExpr>
@@ -6708,14 +6707,26 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                 </Items>
             </Detail>
             <Detail Name="科曼">
-                <Expanded>False</Expanded>
                 <Height>6.56085cm</Height>
                 <VisibleExpr>=IIF(([outter.Customer] = '科曼' Or @Customer = '科曼')#010;And [InventoryItem.RESISTOR_Attributes] = null#010;And @Resistor = null ,true,false)</VisibleExpr>
                 <Items>
+                    <TextBox Name="textBox298">
+                        <Localizable>False</Localizable>
+                        <Location>0px, 104px</Location>
+                        <Size>280px, 20px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>16px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                        </Style>
+                        <Value>='ABA Part NO. : '+IIF(@PartNo = null ,IIF([InventoryItem.InventoryCD] = null,'',[InventoryItem.InventoryCD]),@PartNo)</Value>
+                    </TextBox>
                     <TextBox Name="textBox299">
                         <Localizable>False</Localizable>
-                        <Location>56px, 16px</Location>
-                        <Size>256px, 66px</Size>
+                        <Location>56px, 0px</Location>
+                        <Size>256px, 56px</Size>
                         <Style>
                             <Font>
                                 <Name>Microsoft YaHei UI</Name>
@@ -6726,6 +6737,20 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                             <VerticalAlign>Middle</VerticalAlign>
                         </Style>
                         <Value>手动制作</Value>
+                    </TextBox>
+                    <TextBox Name="textBox300">
+                        <Localizable>False</Localizable>
+                        <Location>0px, 128px</Location>
+                        <Size>280px, 20px</Size>
+                        <Style>
+                            <Font>
+                                <Name>Arial</Name>
+                                <Size>16px</Size>
+                                <Style>Bold</Style>
+                            </Font>
+                            <TextAlign>Left</TextAlign>
+                        </Style>
+                        <Value>='ABA LOT NO. : '+IIF(@LotNo = null ,IIF([outter.LotSerialNbr] = null,'',[outter.LotSerialNbr]), @LotNo)</Value>
                     </TextBox>
                     <TextBox Name="textBox302">
                         <Localizable>False</Localizable>
@@ -6784,7 +6809,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     </TextBox>
                     <TextBox Name="textBox306">
                         <Localizable>False</Localizable>
-                        <Location>0px, 100px</Location>
+                        <Location>0px, 56px</Location>
                         <Size>280px, 20px</Size>
                         <Style>
                             <Font>
@@ -6797,7 +6822,7 @@ AgBREDwCQgugBAFIQPQBACqIHAEhB9AAAKYgeACAF0QMApCB6AIAURA8AkILoAQBSED0AQAqiBwBIQfQ
                     </TextBox>
                     <TextBox Name="textBox307">
                         <Localizable>False</Localizable>
-                        <Location>0px, 120px</Location>
+                        <Location>0px, 80px</Location>
                         <Size>376px, 20px</Size>
                         <Style>
                             <Font>
