@@ -246,7 +246,7 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                 <ParentName>Location</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>http://localhost/LifeSync_2021R2/</SchemaUrl>
+        <SchemaUrl>https://abamedical.acumatica.com/</SchemaUrl>
         <Sorting>
             <SortExp>
                 <DataField>SOShipment.ShipmentNbr</DataField>
@@ -5452,8 +5452,11 @@ c9OvmuLxcI08TNzUdr9P687mF4J8IWngfw5a6VZjcseXllb700rcu7H1Jrep2KMVuePe+5G6LIpV1DKR
                                     <TextBox Name="textBox27">
                                         <Location>128px, 8px</Location>
                                         <Size>616px, 64px</Size>
+                                        <Style>
+                                            <VerticalAlign>Middle</VerticalAlign>
+                                        </Style>
                                         <StyleName>Item Normal</StyleName>
-                                        <Value>=IIf([PIAccount.LegalName]&lt;&gt;null,    #010;	IIF([PIAccount.LegalName] &lt;&gt; 'OSI',#010;	[PIAccount.LegalName],#010;	'OSI Systems Pvt. Ltd. (Optoelectronics Division)')#010;	+'{br}','') #010;+IIF([SOShipment.UsrShipToID] &lt;&gt; null, #010;IIF([ShipToAddress.AddressLine1] &lt;&gt; null, [ShipToAddress.AddressLine1],'') +#010;IIF([ShipToAddress.AddressLine2] &lt;&gt; null, [ShipToAddress.AddressLine2],'') +#010;IIF([ShipToAddress.AddressLine3] &lt;&gt; null, [ShipToAddress.AddressLine3],'')#010;,#010;IIf([PIAddress.AddressLine1]&lt;&gt;null,[PIAddress.AddressLine1]+ ', ','')#010;+IIf([PIAddress.AddressLine2]&lt;&gt;null,[PIAddress.AddressLine2]  ,'')#010;+IIf([PIAddress.AddressLine3]&lt;&gt;null,[PIAddress.AddressLine3]  ,''))</Value>
+                                        <Value>=IIF([SOShipment.UsrShipToID] &lt;&gt; null, #010;IIF([ShipToAddress.AddressLine1] &lt;&gt; null, [ShipToAddress.AddressLine1],'') +#010;IIF([ShipToAddress.AddressLine2] &lt;&gt; null, [ShipToAddress.AddressLine2],'') +#010;IIF([ShipToAddress.AddressLine3] &lt;&gt; null, [ShipToAddress.AddressLine3],'')#010;,#010;IIf([PIAddress.AddressLine1]&lt;&gt;null,[PIAddress.AddressLine1]+ ', ','')#010;+IIf([PIAddress.AddressLine2]&lt;&gt;null,[PIAddress.AddressLine2]  ,'')#010;+IIf([PIAddress.AddressLine3]&lt;&gt;null,[PIAddress.AddressLine3]  ,''))</Value>
                                     </TextBox>
                                     <TextBox Name="textBox3">
                                         <Location>8px, 80px</Location>
